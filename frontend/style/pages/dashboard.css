@@ -204,7 +204,7 @@ body{
     padding-left: 5%;
     flex: 4;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 10px;
     flex-wrap: wrap;
     max-width: 100%;
@@ -247,8 +247,14 @@ body{
 
     
 }
+
+@media (min-width:0px) and (max-width: 810px) {
+    .dashboard .dashboard2{
+        justify-content: center;
+    }
+
+}
 @media (min-width:600px) and (max-width: 1220px) {
-    
     .menu{
         min-width: 150px;
     }

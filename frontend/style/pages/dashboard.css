@@ -187,6 +187,10 @@ body{
     font-size: 2rem;
     align-content: center;
     padding-top: 2%;
+} 
+.dashboard1 .myassets{
+    color: var(--maincolor);
+    margin-bottom: 10px;
 }
 .dashboard1 .balance{
     flex: 3;
@@ -196,11 +200,10 @@ body{
 /******************************************/
 .dashboard .dashboard2{
     background-color: var(--mainbgcolor);
+    padding-left: 5%;
     flex: 4;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    justify-items: center;
+    display: flex;
+    justify-items: left;
     gap: 10px;
 }
 
@@ -471,11 +474,6 @@ input:checked + .slider
     margin-bottom: 20px;
 }
 
-.myassets{
-    color: var(--maincolor);
-    padding-left: 5%;
-    margin-bottom: 10px;
-}
 
 .profilepicture-img{
     width: 50px;

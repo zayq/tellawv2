@@ -474,12 +474,6 @@ input:checked + .slider
     margin-bottom: 20px;
 }
 
-.myassets{
-    color: var(--maincolor);
-    padding-left: 5%;
-    margin-bottom: 10px;
-}
-
 .profilepicture-img{
     width: 50px;
     height: 50px;

@@ -3,17 +3,16 @@
     --secondbgcolor: #1a1a1a;
     --mainbgcolor: #101010;
     --maincolor: #FFFFFF;
-    --gris: #747474;
+    --gris: #7e7e7e;
     --green: #2ebe7b;
     --greenbg: #173427;
     --red: #da5c54;
 }
-
 html {
-    --secondbgcolor: #fbfbfa;
-    --mainbgcolor: #ffffff;
+    --secondbgcolor: #e1e1e1;
+    --mainbgcolor: #f7f7f7;
     --maincolor: #101010;
-    --gris: #747474;
+    --gris: #7e7e7e;
     --green: #2ebe7b;
     --greenbg: #173427;
     --red: #da5c54;

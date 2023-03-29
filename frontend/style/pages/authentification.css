@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@500&display=swap');
+
+html{
+    --black: #101010;
+    --grey: #292929;
+    --white: #ffffff;
+    --green: #2ebe7b;
+    --blue: #1459f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Encode Sans', sans-serif;
+}
+
+body{
+    background-color: var(--black);
+}
+
+h1{
+    color: var(--white);
+}
+
+.header{
+    width: 70%;
+    height: auto;
+    margin: auto;
+    margin-top: 20px;
+
+}
+.title{
+    font-size: 52px;
+}
+.separator{
+    margin-top: 5px;
+    width: auto;
+    border: 1px solid var(--grey);
+}
+
+.form-container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form{
+    height: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.input {
+    background-color: transparent;
+    height: 50px;
+    width: 400px;
+    border: 0;
+    border-radius: 5px;
+    color: var(--white);
+    font-size: 22px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--white);
+    opacity: 1; /* Firefox */
+  }
+
+input:focus {
+    outline: 0;
+}
+
+.bottom-line{
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid var(--grey);
+}
+
+
+p{
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+a{
+    color: var(--green);
+    text-decoration: none;
+}
+
+.button-container{
+    width: 100%;
+}
+
+.register-btn{
+    background-color: var(--green);
+    color: var(--white);
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: #2ebe7b;
+    font-size: 26px;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px -10px var(--green);
+    margin-bottom: 20px;
+}
+
+.register-btn:hover{
+    background-color: #3fe698;
+    box-shadow: 0 10px 20px -10px #3fe698;
+    border: #2ebe7b;
+    cursor: pointer ;
+}
+
+
+.google-btn{
+    display: flex;
+    background-color: var(--white);
+    color: var(--black);
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: var(--white);
+    font-size: 18px;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px -10px var(--white);
+    align-items: center;
+}
+
+.google-btn:hover{
+    background-color: #dfdfdf;
+    box-shadow: 0 10px 20px -10px #dfdfdf;
+    border: #dfdfdf;
+    cursor: pointer ;
+}
+
+.google-logo{
+    margin-left: 65px;
+    width: 50px;
+}
+
+h2{
+    font-size: 22px;
+    margin-bottom: 5px;
+}

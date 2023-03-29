@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@500&display=swap');
+[data-theme="dark"] {
+    --secondbgcolor: #1a1a1a;
+    --mainbgcolor: #101010;
+    --maincolor: #FFFFFF;
+    --gris: #747474;
+    --green: #2ebe7b;
+    --greenbg: #173427;
+    --red: #da5c54;
+}
+
+html {
+    --secondbgcolor: #fbfbfa;
+    --mainbgcolor: #ffffff;
+    --maincolor: #101010;
+    --gris: #747474;
+    --green: #2ebe7b;
+    --greenbg: #173427;
+    --red: #da5c54;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Encode Sans', sans-serif;
+    transition: .07s;
+}
+
+body{
+    min-width: 500px;
+    display: block;
+    height: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+.dashboardpage{
+    display: grid;
+    grid-template-columns: 2fr 12fr;
+    min-height: 100vh;
+    background-color: var(--mainbgcolor);
+}
+
+.menu{
+    background-color: var(--gris);
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+.menu .title{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: var(--secondbgcolor);
+}
+.menu .title .titre{
+    text-align: left;
+    width: 100%;
+    font-size: 40px;
+    color: var(--green);
+    padding-left: 10%;
+    font-weight: 900;
+
+}
+.menu .options{
+    flex: 9;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5% 8% 8% 8%;
+    background-color: var(--secondbgcolor);
+}
+.option i{
+    color: var(--maincolor);
+}
+.options .option{
+    padding: 5%;
+    flex: 2;
+    text-align: center;
+    align-content: center;
+    width: 88%;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 12%;
+    font-size: 1.2rem;
+    color: var(--maincolor);
+}
+
+.options .option:nth-child(2), .option:nth-child(3), .option:nth-child(4){
+    background-color: var(--secondbgcolor);
+    margin-bottom: 5%;
+}
+.options .option:nth-child(2):hover, .option:nth-child(3):hover, .option:nth-child(4):hover {
+    border-radius: 5%;
+    background-color: var(--mainbgcolor);
+    cursor: pointer;
+    transition: .5s;
+}
+.options .option:nth-child(1){
+    flex: 1;
+    background-color: var(--secondbgcolor);
+}
+
+/*----------------*/
+.dashboard{
+    background-color: var(--mainbgcolor);
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+}
+.dashboard .dashboardtitle{
+    flex: 2;
+    background-color: var(--mainbgcolor);
+    display: flex;
+    color: var(--maincolor);
+    justify-content: space-between;
+}
+.dashboardtitle .title{
+    width: 20%;
+    text-align: left;
+    align-items: center;
+    display: flex;
+    padding-left: 5%;
+}
+.dashboardtitle .title h1{
+    flex: 1;
+}
+.dashboardtitle .userinfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 10px 0 0;
+}
+.userinfo .userpic {
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.userinfo .iconinfo{
+    display: flex;
+    gap: 8px;
+    height: 100%;
+    align-items: center;
+}
+
+.iconinfo .switchcontent{
+    position: relative;
+    min-width: 58px;
+    height: 28px;
+}
+.iconinfo .switch{
+    min-width: 100%;
+}
+.iconinfo i{
+    padding: 10px 10px;
+    color: var(--maincolor);
+    font-size: 1.2rem;
+    scale: 0.8;
+}
+.iconinfo i:hover{
+    color: var(--maincolor);
+    scale: 1;
+    transition: .3s;
+    background-color: var(--secondbgcolor);
+    border-radius: 10px;
+}
+/*.dashboardtitle img{
+/*    width: 50px;
+/*    border: var(--maincolor) 0px solid;
+/*    border-radius: 50%;
+/*}
+/*************************/
+
+.dashboard .dashboard1{
+    background-color: var(--mainbgcolor);
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    color: var(--maincolor);
+    padding-left: 5%;
+}
+
+.dashboard1 h3{
+    flex: 1;
+    font-size: 2rem;
+    align-content: center;
+    padding-top: 2%;
+}
+.dashboard1 .balance{
+    flex: 3;
+    font-size: 5rem;
+}
+
+/******************************************/
+.dashboard .dashboard2{
+    background-color: var(--mainbgcolor);
+    flex: 4;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    gap: 10px;
+}
+
+
+
+
+.dashboard2 .box{
+    width: 300px;
+    height: 150px;
+    background-color: var(--mainbgcolor);
+    border-radius: 8%;
+    display: flex;
+    color: var(--maincolor);
+    padding: 1%;
+}
+
+
+
+
+
+.dashboard2 .box .left{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 5% 0 0 5%;
+    position: relative;
+}
+.dashboard2 .box .left .info img{
+    position: absolute;
+    top: 7%;
+    left: 2%;
+    width: 40px;
+}
+
+.dashboard2 .box .left .info{
+    flex: 2;
+    justify-content: right;
+    grid-template-rows: 3fr 2fr;
+    display: grid;
+    text-align: center;
+}
+.dashboard2 .box .left .prix{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+}
+.dashboard2 .box .left .prix .actuel{
+    flex: 4;
+    font-size: 1.4rem;
+}
+
+.dashboard2 .box .left .info .name{
+    flex: 3;
+    font-size: 1.6rem;
+    padding-left: 10%;
+}
+.dashboard2 .box .info .symbol{
+    flex: 2;
+    font-size: 1.1rem;
+    text-align: left;
+    padding-left: 10%;
+}
+
+
+
+
+.dashboard2 .box .right{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-top: 5%;
+    align-content: center;
+}
+.dashboard2 .box .right .prix{
+    flex: 1;
+    padding: 3% 10% 0 35%;
+}
+.dashboard2 .box .right .prix .percentage{
+    background-color: var(--greenbg);
+    color: var(--green);
+    border-radius: 10px;
+    text-align: center;
+    height: 50%;
+}
+.dashboard2 .box .chart{
+    flex: 2;
+    text-align: center;
+    font-size: 1rem;
+}
+/*===========================================================*/
+.dashboard3{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-graph{
+    height: 500px;
+    width: 100%;
+}
+@media (min-width:0px) and (max-width: 600px) {
+    .menu{
+        min-width: 90px;
+    }
+    .menu .option{
+        font-size: 0.7rem;
+    }
+    .dashboardtitle .title{
+        flex: 2;
+    }
+    .dashboardtitle .userinfo{
+        flex: 1;
+    }
+    .dashboard .dashboard2{
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr ;
+        gap: 0px;
+        margin: 40px;
+    }
+    .dashboard2 .box:nth-child(10){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(9){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(8){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(7){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(6){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(5){
+        display: none;
+    }
+
+
+    
+}
+@media (min-width:600px) and (max-width: 1220px) {
+    
+    .menu{
+        min-width: 150px;
+    }
+    .menu .option{
+        font-size: 1rem;
+    }
+    .dashboard .dashboard2{
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr ;
+        gap: 10px;
+    }
+    .dashboard2 .box:nth-child(10){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(9){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(8){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(7){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(6){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(5){
+        display: none;
+    }
+}
+@media (min-width:1220px) and (max-width: 1650px) {
+   
+    .dashboard .dashboard2{
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+    .dashboard2 .box:nth-child(10){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(9){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(8){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(7){
+        display: none;
+    }
+}
+@media (min-width:1650px) and (max-width: 2000px) {
+    .dashboard .dashboard2{
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+    }
+    .dashboard2 .box:nth-child(10){
+        display: none;
+    }
+    .dashboard2 .box:nth-child(9){
+        display: none;
+    }
+}
+/***********************************/
+
+
+.switch input
+{
+  display: none;
+}
+
+.switch 
+{
+  position: relative;
+}
+
+.slider
+{
+    width: 50px;
+    height: 20px;
+  position: absolute;
+  border-radius: 30px;
+  box-shadow: 0 0 0 2px var(--maincolor), 0 0 4px var(--maincolor);
+  cursor: pointer;
+    border: 4px solid transparent;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.slider:before
+{
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background-color: var(--maincolor);
+  border-radius: 30px;
+  transform: translateX(0px); /*translateX(-(w-h))*/
+  transition: 0.2s;
+}
+
+input:checked + .slider:before
+{
+  width: 50%;
+  transform: translateX(30px); /*translateX(w-h)*/
+  background-color: var(--maincolor);
+}
+
+input:checked + .slider
+{
+  box-shadow: 0 0 0 2px var(--maincolor);
+  border: 4px solid transparent;
+}
+
+
+.separator{
+    background-color: #333333;
+    height: 1px;
+    border: none;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.myassets{
+    color: var(--maincolor);
+    padding-left: 5%;
+    margin-bottom: 10px;
+}
+
+.profilepicture-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid #2ebe7b;
+}
+
+.connectwallet{
+    background-color: var(--green);
+    color: var(--maincolor);
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: #2ebe7b;
+    font-size: 18px;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px -10px var(--green);
+    
+}
+
+.connectwallet:hover{
+    background-color: #3fe698;
+    box-shadow: 0 10px 20px -10px #3fe698;
+    border: #2ebe7b;
+    cursor: pointer ;
+}
+.savewallet{
+    background-color: var(--green);
+    color: var(--white);
+    width: 30%;
+    height: 50px;
+    border-radius: 10px;
+    border: #2ebe7b;
+    font-size: 18px;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px -10px var(--green);
+    
+}
+
+.savewallet:hover{
+    background-color: #3fe698;
+    box-shadow: 0 10px 20px -10px #3fe698;
+    border: #2ebe7b;
+    cursor: pointer ;
+}

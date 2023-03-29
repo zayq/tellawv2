@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@500&display=swap');
+[data-theme="dark"] {
+    --secondbgcolor: #1a1a1a;
+    --mainbgcolor: #101010;
+    --maincolor: #FFFFFF;
+    --gris: #747474;
+    --green: #2ebe7b;
+    --greenbg: #173427;
+    --red: #da5c54;
+}
+
+html {
+    --secondbgcolor: #fbfbfa;
+    --mainbgcolor: #ffffff;
+    --maincolor: #101010;
+    --gris: #747474;
+    --green: #2ebe7b;
+    --greenbg: #173427;
+    --red: #da5c54;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Encode Sans', sans-serif;
+}
+
+body {
+   background-color: #000; 
+}
+
+.card{
+    width: 250px;
+    height: 219px;
+    background-color: var(--secondbgcolor);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.card-top{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-logo{
+    width: 60px;
+    height: 60px;
+}
+
+.card-name{
+    color: var(--maincolor);
+}
+
+.card-symbol{
+    color: var(--gris);
+    font-size: 22px;
+}
+
+.card-graph {
+   height: 100px;
+   margin-bottom: 30px;
+   width: 250px;
+}
+
+.card-bottom{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.price{
+    color: #ffff;
+    font-weight: 300;
+}
+
+.percentage{
+    background-color: #1e3b2e;
+    border-radius: 32px;
+    width: 45%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.percentage-number{
+    color: #2ebe7b;
+    font-weight: 300;
+    font-size: 22px;
+    margin-right: 5px;
+}
+
+i{
+    color: #2ebe7b;
+}
+
+.fa-light{
+    width: 50px;
+    height: 50px;
+}
+
+.assets {
+    width: 100%;
+    height: 500px;
+    background-color: white;
+    width: 80%;
+}
+
+.separator {
+    margin-top: 10px;
+    background-color: #000;
+    height: 2px;
+}
+
+.top{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100/3%;
+}
+
+h2{
+    margin-right: 30%;
+}
+
+.crypto{
+    width: 100%;
+    gap: 25%;
+    margin-top: 20px;
+    background-color: #2ebe7b;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.info{
+    display: flex;
+}
+
+.logo{
+    width: 50px;
+    height: 50px;
+}

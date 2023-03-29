@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login.</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/frontend/style/pages/authentification.css">
+    </head>
+    <body>
+
+        <header class="header">
+            <h1 class="title">Login</h1>
+            <hr class="separator">
+        </header>
+        <div class="form-container" id="form_content_container">
+            <div class="form" id="form_content_inner_container">
+                <input class="input" type="email" id="email" placeholder="Email">
+                <hr class="bottom-line">
+                <input class="input" type="password" id="password" placeholder="Password">
+                <hr class="bottom-line">
+                <p>Don't have an account? <a href="register.html">Register</a></p>
+                
+                <div class="button-container" id="button_container">
+                    <button class="register-btn" id="login-btn">Login</button>
+                    <button class="google-btn" onclick="google()">
+                        <img class="google-logo" src="/frontend/assets/other/google.png">
+                        <h2>Login With Google</h2>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </body>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="/backend/authentification/login.js" type="module" ></script>
+
+</html>

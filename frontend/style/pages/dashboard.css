@@ -36,11 +36,11 @@ body{
 
 .dashboardpage{
     display: grid;
-    grid-template-columns: 2fr 12fr;
+    grid-template-columns: 1fr;
     min-height: 100vh;
     background-color: var(--mainbgcolor);
 }
-
+/*
 .menu{
     border-right: 2px solid var(--maincolor);
     background-color: var(--gris);
@@ -89,10 +89,10 @@ body{
 
 .options .option:nth-child(2), .option:nth-child(3), .option:nth-child(4){
     background-color: var(--secondbgcolor);
-    margin-bottom: 5%;
+    margin-bottom: 0;
 }
 .options .option:nth-child(2):hover, .option:nth-child(3):hover, .option:nth-child(4):hover {
-    border-radius: 5%;
+    border-radius: 0;
     background-color: var(--mainbgcolor);
     cursor: pointer;
     transition: .5s;
@@ -102,7 +102,7 @@ body{
     background-color: var(--secondbgcolor);
 }
 
-/*----------------*/
+----------------*/
 .dashboard{
     background-color: var(--mainbgcolor);
     display: flex;
@@ -117,15 +117,37 @@ body{
     justify-content: space-between;
 }
 .dashboardtitle .title{
-    width: 20%;
+    width: 35%;
+    gap: 3%;
     text-align: left;
     align-items: center;
     display: flex;
     padding-left: 5%;
 }
 .dashboardtitle .title h1{
-    flex: 1;
+    max-width: 200px;
+    font-size: 2.5rem;
 }
+.dashboardtitle .title .option{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 10px;
+    color: var(--maincolor);
+    font-size: 1.2rem;
+    scale: 0.8;
+    cursor: pointer;
+}
+.dashboardtitle .title .option:hover{
+    color: var(--maincolor);
+    scale: 1;
+    transition: .3s;
+    background-color: var(--secondbgcolor);
+    border-radius: 10px;
+}
+
+
 .dashboardtitle .userinfo{
     display: flex;
     flex-direction: row;
@@ -229,21 +251,19 @@ body{
     width: 100%;
 }
 @media (min-width:0px) and (max-width: 600px) {
-    .menu{
-        min-width: 90px;
+    .dashboard .dashboardtitle{
+        flex-direction: column;
+        position: relative;
     }
-    .menu .option{
-        font-size: 0.7rem;
+    .dashboard .dashboardtitle .title{
+        width: 100%;
+        gap: 10%;
     }
-    .dashboardtitle .title{
-        flex: 2;
+    .dashboard .dashboardtitle .userinfo{
+        width: 100%;
+        gap: 10%;
+        padding-left: 5%;
     }
-    .dashboardtitle .userinfo{
-        flex: 1;
-    }
-    .dashboard .dashboard2{
-    }
-
 
     
 }

@@ -36,11 +36,11 @@ body{
 
 .dashboardpage{
     display: grid;
-    grid-template-columns: 2fr 12fr;
+    grid-template-columns: 1fr;
     min-height: 100vh;
     background-color: var(--mainbgcolor);
 }
-
+/*
 .menu{
     border-right: 2px solid var(--maincolor);
     background-color: var(--gris);
@@ -89,10 +89,10 @@ body{
 
 .options .option:nth-child(2), .option:nth-child(3), .option:nth-child(4){
     background-color: var(--secondbgcolor);
-    margin-bottom: 5%;
+    margin-bottom: 0;
 }
 .options .option:nth-child(2):hover, .option:nth-child(3):hover, .option:nth-child(4):hover {
-    border-radius: 5%;
+    border-radius: 0;
     background-color: var(--mainbgcolor);
     cursor: pointer;
     transition: .5s;
@@ -102,7 +102,7 @@ body{
     background-color: var(--secondbgcolor);
 }
 
-/*----------------*/
+----------------*/
 .dashboard{
     background-color: var(--mainbgcolor);
     display: flex;
@@ -117,15 +117,37 @@ body{
     justify-content: space-between;
 }
 .dashboardtitle .title{
-    width: 20%;
+    width: 35%;
+    gap: 3%;
     text-align: left;
     align-items: center;
     display: flex;
     padding-left: 5%;
 }
 .dashboardtitle .title h1{
-    flex: 1;
+    max-width: 200px;
+    font-size: 2.5rem;
 }
+.dashboardtitle .title .option{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 10px;
+    color: var(--maincolor);
+    font-size: 1.2rem;
+    scale: 0.8;
+    cursor: pointer;
+}
+.dashboardtitle .title .option:hover{
+    color: var(--maincolor);
+    scale: 1;
+    transition: .3s;
+    background-color: var(--secondbgcolor);
+    border-radius: 10px;
+}
+
+
 .dashboardtitle .userinfo{
     display: flex;
     flex-direction: row;
@@ -204,99 +226,18 @@ body{
     padding-left: 5%;
     flex: 4;
     display: flex;
-    justify-items: left;
+    justify-content: left;
     gap: 10px;
-}
-
-
-
-
-.dashboard2 .box{
-    width: 300px;
-    height: 150px;
-    background-color: var(--mainbgcolor);
-    border-radius: 8%;
-    display: flex;
-    color: var(--maincolor);
-    padding: 1%;
+    flex-wrap: wrap;
+    max-width: 100%;
 }
 
 
 
 
 
-.dashboard2 .box .left{
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 5% 0 0 5%;
-    position: relative;
-}
-.dashboard2 .box .left .info img{
-    position: absolute;
-    top: 7%;
-    left: 2%;
-    width: 40px;
-}
-
-.dashboard2 .box .left .info{
-    flex: 2;
-    justify-content: right;
-    grid-template-rows: 3fr 2fr;
-    display: grid;
-    text-align: center;
-}
-.dashboard2 .box .left .prix{
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 5%;
-}
-.dashboard2 .box .left .prix .actuel{
-    flex: 4;
-    font-size: 1.4rem;
-}
-
-.dashboard2 .box .left .info .name{
-    flex: 3;
-    font-size: 1.6rem;
-    padding-left: 10%;
-}
-.dashboard2 .box .info .symbol{
-    flex: 2;
-    font-size: 1.1rem;
-    text-align: left;
-    padding-left: 10%;
-}
 
 
-
-
-.dashboard2 .box .right{
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding-top: 5%;
-    align-content: center;
-}
-.dashboard2 .box .right .prix{
-    flex: 1;
-    padding: 3% 10% 0 35%;
-}
-.dashboard2 .box .right .prix .percentage{
-    background-color: var(--greenbg);
-    color: var(--green);
-    border-radius: 10px;
-    text-align: center;
-    height: 50%;
-}
-.dashboard2 .box .chart{
-    flex: 2;
-    text-align: center;
-    font-size: 1rem;
-}
 /*===========================================================*/
 .dashboard3{
     flex: 2;
@@ -310,48 +251,30 @@ body{
     width: 100%;
 }
 @media (min-width:0px) and (max-width: 600px) {
-    .menu{
-        min-width: 90px;
+    .dashboard .dashboardtitle{
+        flex-direction: column;
+        position: relative;
     }
-    .menu .option{
-        font-size: 0.7rem;
+    .dashboard .dashboardtitle .title{
+        width: 100%;
+        gap: 10%;
     }
-    .dashboardtitle .title{
-        flex: 2;
+    .dashboard .dashboardtitle .userinfo{
+        width: 100%;
+        gap: 10%;
+        padding-left: 5%;
     }
-    .dashboardtitle .userinfo{
-        flex: 1;
-    }
-    .dashboard .dashboard2{
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr ;
-        gap: 0px;
-        margin: 40px;
-    }
-    .dashboard2 .box:nth-child(10){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(9){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(8){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(7){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(6){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(5){
-        display: none;
-    }
-
 
     
 }
+
+@media (min-width:0px) and (max-width: 810px) {
+    .dashboard .dashboard2{
+        justify-content: center;
+    }
+
+}
 @media (min-width:600px) and (max-width: 1220px) {
-    
     .menu{
         min-width: 150px;
     }
@@ -359,60 +282,18 @@ body{
         font-size: 1rem;
     }
     .dashboard .dashboard2{
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr ;
         gap: 10px;
-    }
-    .dashboard2 .box:nth-child(10){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(9){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(8){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(7){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(6){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(5){
-        display: none;
     }
 }
 @media (min-width:1220px) and (max-width: 1650px) {
    
     .dashboard .dashboard2{
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
         gap: 10px;
-    }
-    .dashboard2 .box:nth-child(10){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(9){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(8){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(7){
-        display: none;
     }
 }
 @media (min-width:1650px) and (max-width: 2000px) {
     .dashboard .dashboard2{
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 10px;
-    }
-    .dashboard2 .box:nth-child(10){
-        display: none;
-    }
-    .dashboard2 .box:nth-child(9){
-        display: none;
     }
 }
 /***********************************/

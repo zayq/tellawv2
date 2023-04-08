@@ -21,15 +21,19 @@ async function loadpage(){
         let cryptowallet = new CryptoWallet(wallet, user.wallets[wallet].cryptos )
         cryptowallet.logcryptos();
         const boxHtml = `
-        <div class="card">
+        <button id="${wallet}" class="card">
             <div class="card-top">
                 <div class="card-info">
                     <h1 class="card-name">${wallet}</h1>
                 </div>
             </div>
-        </div>
+        </button>
     `
     await container.insertAdjacentHTML('beforeend', boxHtml);
+    await document.getElementById(wallet).addEventListener("click", function(){
+        console.log(wallet)
+        location.href = 'http://localhost:5500/frontend/pages/dashboard/wallet.html';
+    })
     }
     
 }

@@ -31,7 +31,7 @@ function login() {
         document.cookie = `auth_token=${user.uid}; expires=${expires}; path=/`;
 
         // Redirect to dashboard page
-        window.location.href = "/frontend/pages/dashboard.html";
+        window.location.href = "/frontend/pages/dashboard/dashboard.html";
     })
     .catch(function(error) {
         // Firebase will use this to alert of its errors

@@ -109,14 +109,14 @@ body{
     flex-direction: column;
     max-height: 100%;
 }
-.dashboard .dashboardtitle{
+.dashboard .navbartitle{
     flex: 1;
     background-color: var(--mainbgcolor);
     display: flex;
     color: var(--maincolor);
     justify-content: space-between;
 }
-.dashboardtitle .title{
+.navbartitle .title{
     width: 35%;
     gap: 3%;
     text-align: left;
@@ -124,11 +124,11 @@ body{
     display: flex;
     padding-left: 5%;
 }
-.dashboardtitle .title h1{
+.navbartitle .title h1{
     max-width: 200px;
     font-size: 2.5rem;
 }
-.dashboardtitle .title .option{
+.navbartitle .title .option{
     display: flex;
     justify-content: center;
     gap: 8px;
@@ -139,7 +139,7 @@ body{
     scale: 0.8;
     cursor: pointer;
 }
-.dashboardtitle .title .option:hover{
+.navbartitle .title .option:hover{
     color: var(--maincolor);
     scale: 1;
     transition: .3s;
@@ -148,7 +148,7 @@ body{
 }
 
 
-.dashboardtitle .userinfo{
+.navbartitle .userinfo{
     display: flex;
     flex-direction: row;
     align-items: center;

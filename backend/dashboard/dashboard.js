@@ -19,7 +19,6 @@ async function loadpage(){
     let index = 0
     for (const wallet in user.wallets) {
         let cryptowallet = new CryptoWallet(wallet, user.wallets[wallet].cryptos )
-        cryptowallet.logcryptos();
         const boxHtml = `
         <button id="${wallet}" class="card">
             <div class="card-top">

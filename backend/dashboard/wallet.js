@@ -7,7 +7,8 @@ console.log(user)
 async function loadwallets(){
     const walletsContainer = document.getElementById("wallets-container");
     for (const wallet in user.wallets){
-        console.log(user.wallets[wallet].getTotalBalance())
+        let walletobj = new CryptoWallet(wallet, user.wallets[wallet].cryptos)
+        console.log(walletobj.getTotalBalance())
         let boxCrypto = `
         `
         for (const crypto in user.wallets[wallet].cryptos){

@@ -43,7 +43,6 @@ export class User {
     async editCrypto(transactionType) {
       let transac = new Transaction(transactionType);
       transac.transac();
-      this.loadCryptos();
     }
     async getBalance() {
       try {

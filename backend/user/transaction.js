@@ -1,31 +1,35 @@
 import { database } from "/backend/database/database.js";
-
+import { getCryptoPrice} from "/backend/api/crypto/crypto.js";
 export class Transaction {
-    constructor(type){
-      this.symbol = document.getElementById("symbol").value;
-      this.ammount = parseFloat(document.getElementById("ammount").value);
+    constructor(symbol, ammount, type, id, walletid){
+      this.symbol = symbol;
+      this.ammount = ammount;
       this.type = type
+      this.id = id
+      this.walletid = walletid
     }
     async transac(){
     
       this.validTransac()
     
-      const userCryptoRef = database.ref(`users/${id}/cryptos/${this.symbol}`);
-    
+      const userCryptoRef = database.ref(`users/${this.id}/wallets/${this.walletid}/cryptos/${this.symbol}`);
+      
       userCryptoRef.transaction((currentValue) => {
         if (!currentValue) {
-          return this.ammount
+          return parseFloat(this.ammount);
         }
-        let newValue;
-  
-        if (this.type) {newValue = currentValue + this.ammount;} 
-  
-        else {newValue = currentValue - this.ammount;}
-  
-        return newValue >= 0 ? newValue : currentValue;
+        let newValue = 0;
+      
+        if (this.type) {
+          newValue = currentValue + parseFloat(this.ammount);
+        } else {
+          newValue = currentValue - parseFloat(this.ammount);
+        }
+      
+        return newValue >= 0 ? parseFloat(newValue) : currentValue;
       })
       .then(() => {
-        loadcryptos();
+        console.log("crypto edited!");
       })
       .catch((error) => {
         console.error('Error adding crypto:', error);
@@ -38,7 +42,7 @@ export class Transaction {
         return;
       }
       try {
-        await getcryptoprice(this.symbol);
+        await getCryptoPrice(this.symbol);
       } catch (error) {
         alert(`This is not a valid crypto ${this.symbol}:`, error);
         return;

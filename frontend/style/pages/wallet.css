@@ -1,0 +1,27 @@
+#create-transaction{
+    background-color: #00a6ffee;
+    color: #ffff;
+    width: 30%;
+    height: 50px;
+    border-radius: 10px;
+    border: #00a6ffee;
+    font-size: 10px;
+    
+    transition: 0.3s;
+    box-shadow: 0 10px 20px -10px #00a6ffee;
+}
+
+#create-transaction:hover{
+    background-color: #46d1ffee;
+    box-shadow: 0 10px 20px -10px #46d1ffee;
+    border: #46d1ffee;
+    cursor: pointer ;
+}
+
+
+#create-transaction-window{
+    height: 60%;
+    width: 40%;
+    background-color: aliceblue;
+    display: none;
+}

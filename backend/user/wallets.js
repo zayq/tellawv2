@@ -14,7 +14,7 @@ export class CryptoWallet{
             let price = await getCryptoPrice(crypto)
             totalBalance += price * this.cryptos[crypto];
         }
-        return totalBalance
+        return totalBalance.toFixed(2)
     }
 
 }

@@ -7,10 +7,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Wallets</title>
     <link rel="icon" href="/frontend/assets/branding/tellawfavnobg.png">
-
+    <link rel="stylesheet" href="/frontend/style/pages/wallet.css">
 </head>
 <body>
+    <div id="create-transaction-window">
+        <button id="close-transaction-window">Close</button>
+        <input id="buy" type="checkbox" value="buy">BUY
+        <input id="sell" type="checkbox" value="sell">SELL
+        <input id="tsymbol" type="text" placeholder="Crypto Symbol">
+        <input id="tammount" type="number" placeholder="Ammount">
+        <button id="submit-transaction" type="submit">Create</button>
+    </div>
 
+    <button id="create-transaction">
+        <h1>Create a Transaction</h1>
+    </button>
     <div id="wallets-container"></div>
 
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>

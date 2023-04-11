@@ -4,17 +4,19 @@
     --mainbgcolor: #101010;
     --maincolor: #FFFFFF;
     --gris: #7e7e7e;
-    --green: #2ebe7b;
+    --purple: #9E77ED;
+    --purpleaccent: #7F56D9;
     --greenbg: #173427;
     --red: #da5c54;
 }
 
 html {
-    --secondbgcolor: #e1e1e1;
-    --mainbgcolor: #f7f7f7;
+    --secondbgcolor: #E4E7EC;
+    --mainbgcolor: #FCFCFD;
     --maincolor: #101010;
     --gris: #7e7e7e;
-    --green: #2ebe7b;
+    --purple: #9E77ED;
+    --purpleaccent: #D6BBFB;
     --greenbg: #173427;
     --red: #da5c54;
 }
@@ -58,7 +60,7 @@ body{
     text-align: left;
     width: 100%;
     font-size: 40px;
-    color: var(--green);
+    color: var(--purple);
     padding-left: 10%;
     font-weight: 900;
 
@@ -198,15 +200,12 @@ body{
 
 .dashboard .dashboard1{
     background-color: var(--mainbgcolor);
-    flex: 4;
-    display: flex;
     flex-direction: column;
     color: var(--maincolor);
     padding-left: 5%;
 }
 
 .dashboard1 h3{
-    flex: 1;
     font-size: 2rem;
     align-content: center;
     padding-top: 2%;
@@ -216,8 +215,7 @@ body{
     margin-bottom: 10px;
 }
 .dashboard1 .balance{
-    flex: 3;
-    font-size: 5rem;
+    font-size: 3rem;
 }
 
 /******************************************/
@@ -360,44 +358,44 @@ input:checked + .slider
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 5px solid #2ebe7b;
+    border: 5px solid var(--purple);
 }
 
 .connectwallet{
-    background-color: var(--green);
-    color: var(--maincolor);
+    background-color: var(--purple);
+    color: var(--mainbgcolor);
     width: 100%;
     height: 50px;
     border-radius: 10px;
-    border: #2ebe7b;
+    border: var(--purple);
     font-size: 18px;
-    transition: 0.3s;
-    box-shadow: 0 10px 20px -10px var(--green);
+    transition: 0.2s;
+    box-shadow: 0 10px 20px -10px var(--purple);
     
 }
 
 .connectwallet:hover{
-    background-color: #3fe698;
-    box-shadow: 0 10px 20px -10px #3fe698;
-    border: #2ebe7b;
+    background-color: var(--purpleaccent);
+    box-shadow: 0 10px 20px -10px var(--purpleaccent);
+    border: var(--purpleaccent);
     cursor: pointer ;
 }
 .savewallet{
-    background-color: var(--green);
-    color: var(--white);
+    background-color: var(--purple);
+    color: var(--mainbgcolor);
     width: 30%;
     height: 50px;
     border-radius: 10px;
-    border: #2ebe7b;
+    border: var(--purpleaccent);
     font-size: 18px;
-    transition: 0.3s;
-    box-shadow: 0 10px 20px -10px var(--green);
+    transition: 0.2s;
+    box-shadow: 0 10px 20px -10px var(--purple);
     
 }
 
 .savewallet:hover{
-    background-color: #3fe698;
-    box-shadow: 0 10px 20px -10px #3fe698;
-    border: #2ebe7b;
+    background-color: var(--purpleaccent);
+    box-shadow: 0 10px 20px -10px var(--purpleaccent);
+    border: var(--purpleaccent);
     cursor: pointer ;
 }

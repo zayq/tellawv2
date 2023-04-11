@@ -25,3 +25,226 @@
     background-color: aliceblue;
     display: none;
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@500&display=swap');
+[data-theme="dark"] {
+    --secondbgcolor: #1a1a1a;
+    --mainbgcolor: #101010;
+    --maincolor: #FFFFFF;
+    --gris: #7e7e7e;
+    --green: #2ebe7b;
+    --greenbg: #173427;
+    --red: #da5c54;
+}
+
+html {
+    --secondbgcolor: #e1e1e1;
+    --mainbgcolor: #f7f7f7;
+    --maincolor: #101010;
+    --gris: #7e7e7e;
+    --green: #2ebe7b;
+    --greenbg: #173427;
+    --red: #da5c54;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Encode Sans', sans-serif;
+    transition: .07s;
+}
+
+body{
+    min-width: 500px;
+    display: block;
+    height: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+
+
+
+
+section{
+    background-color: var(--mainbgcolor);
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    min-height: 100vh;
+}
+section .navbartitle{
+    height: 90px;
+    background-color: var(--mainbgcolor);
+    display: flex;
+    color: var(--maincolor);
+    justify-content: space-between;
+}
+.navbartitle .title{
+    width: 35%;
+    gap: 3%;
+    text-align: left;
+    align-items: center;
+    display: flex;
+    padding-left: 5%;
+}
+.navbartitle .title h1{
+    max-width: 200px;
+    font-size: 2.5rem;
+}
+.navbartitle .title .option{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 10px;
+    color: var(--maincolor);
+    font-size: 1.2rem;
+    scale: 0.8;
+    cursor: pointer;
+}
+.navbartitle .title .option:hover{
+    color: var(--maincolor);
+    scale: 1;
+    transition: .3s;
+    background-color: var(--secondbgcolor);
+    border-radius: 10px;
+}
+
+
+.navbartitle .userinfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 10px 0 0;
+}
+.userinfo .userpic {
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.userinfo .iconinfo{
+    display: flex;
+    gap: 8px;
+    height: 100%;
+    align-items: center;
+}
+
+.iconinfo .switchcontent{
+    position: relative;
+    min-width: 58px;
+    height: 28px;
+}
+.iconinfo .switch{
+    min-width: 100%;
+}
+.iconinfo i{
+    padding: 10px 10px;
+    color: var(--maincolor);
+    font-size: 1.2rem;
+    scale: 0.8;
+}
+.iconinfo i:hover{
+    color: var(--maincolor);
+    scale: 1;
+    transition: .3s;
+    background-color: var(--secondbgcolor);
+    border-radius: 10px;
+}
+
+/*----------------------------------------*/
+
+section .content{
+    flex: 1;
+    display: flex;
+}
+.content .allwallets{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    gap: 10px;
+}
+.content .allwallets div{
+    padding: 8px 0 8px 0;
+    text-align: center;
+    background-color: #2ebe7b;
+}
+
+
+.content .walletcontent{
+    flex: 6;
+    display: flex;
+    flex-direction: column;
+}
+
+.walletcontent .wallettitle{
+    height: 250px;
+}
+.wallettitle h1{
+    font-size: 4rem;
+}
+.wallettitle h3{
+    font-size: 3rem;
+}
+.walletcontent .walletelements{
+    flex: 1;
+    padding: 0 50px 0 50px;
+}
+.walletelements .description{
+    display: flex;
+    flex-direction: row;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+.description .name{
+    flex: 1;
+    padding: 5px;
+}
+.description .price{
+    flex: 1;
+    padding: 5px;
+}
+.description .amount{
+    flex: 1;
+    padding: 5px;
+}
+.description .marketcap{
+    flex: 1;
+    padding: 5px;
+}
+.description .graph{
+    flex: 1;
+    padding: 5px;
+}
+
+
+
+.walletelements .element{
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+}
+.element .name{
+    flex: 1;
+    padding: 5px;
+}
+.element .price{
+    flex: 1;
+    padding: 5px;
+}
+.element .amount{
+    flex: 1;
+    padding: 5px;
+}
+.element .marketcap{
+    flex: 1;
+    padding: 5px;
+}
+.element .graph{
+    flex: 1;
+    padding: 5px;
+}

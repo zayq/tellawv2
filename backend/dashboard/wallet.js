@@ -14,18 +14,35 @@ async function loadwallets(){
         let walletobj = new CryptoWallet(wallet, user.wallets[wallet].cryptos)
         console.log(walletobj.getTotalBalance())
         let boxCrypto = `
+        <div class="element">
         `
         for (const crypto in user.wallets[wallet].cryptos){
             boxCrypto += `
-                <h2>${crypto} : ${user.wallets[wallet].cryptos[crypto]} : ${( await getCryptoPrice(crypto) * user.wallets[wallet].cryptos[crypto] ).toFixed(2)}$</h2>
+            <div class="name">${crypto}</div>
+            <div class="price">${( await getCryptoPrice(crypto) * user.wallets[wallet].cryptos[crypto] ).toFixed(2)}</div>
+            <div class="amount"> ${user.wallets[wallet].cryptos[crypto]} </div>
+            <div class="marketcap">431 988 999</div>
+            <div class="graph">Graphique</div>
             `
         }
+
         let boxHtml = `
-            <div id="${wallet}">
+            <div id="${wallet}" class="walletcontent">
+            <div class="wallettitle">
                 <h1>${wallet}</h1>
-                <h2>TOTAL :  ${ await walletobj.getTotalBalance() }$</h2>
+                <h3 id="wallettotalbalance">Total Balance: ${ await walletobj.getTotalBalance() }</h3>
             </div>
+            <div class="walletelements">
+                <div class="description">
+                    <div class="name">Name</div>
+                    <div class="price">Price</div>
+                    <div class="amount">Amount</div>
+                    <div class="marketcap">Marketcap</div>
+                    <div class="graph">Graphique</div>
             `
+        boxCrypto += `</dviv></div>
+        </div>
+    </div>`
         boxHtml += boxCrypto
     await walletsContainer.insertAdjacentHTML('beforeend', boxHtml);
     }

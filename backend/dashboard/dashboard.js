@@ -11,6 +11,18 @@ window.addEventListener("load", async function() {
 });
 
 async function loadpage(){
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '409414f4dbmsh7a2f43c31f9de94p124423jsn608597d0f492',
+            'X-RapidAPI-Host': 'realstonks.p.rapidapi.com'
+        }
+    };
+    
+    fetch('https://realstonks.p.rapidapi.com/TSLA', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
     await user.setUserData();
     document.getElementById("profilepictureimg").src = user.profilepicture;
     document.getElementById("username").innerHTML =  user.username

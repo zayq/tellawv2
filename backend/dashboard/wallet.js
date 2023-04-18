@@ -35,14 +35,17 @@ async function loadwallets(){
                 <h3 id="wallettotalbalance">Total Balance: ${ await walletobj.getTotalBalance() }</h3>
             </div>
             <div class="walletelements">
-                <div class="description">
-                    <div class="name">Name</div>
-                    <div class="price">Price</div>
-                    <div class="amount">Amount</div>
-                    <div class="marketcap">Marketcap</div>
-                    <div class="graph">Graphique</div>
+            <div class="description">
+            <div class="header-wallet">
+                <div class="name">Name</div>
+                <div class="price">Price</div>
+                <div class="amount">Amount</div>
+                <div class="marketcap">Marketcap</div>
+                <div class="graph">Graphique</div>
+            </div>
+        </div>
             `
-        boxCrypto += `</dviv></div>
+        boxCrypto += `</div></div>
         </div>
     </div>`
         boxHtml += boxCrypto

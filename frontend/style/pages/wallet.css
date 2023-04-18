@@ -198,10 +198,18 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
     padding: 0 50px 0 50px;
 }
 .walletelements .description{
+
+}
+.header-wallet{
     display: flex;
     flex-direction: row;
     font-style: italic;
     font-size: 1.5rem;
+    display: flex;
+    flex: 1;
+}
+.header-wallet div{
+    border-right: #ccc solid 2px;
 }
 .description .name{
     flex: 1;
@@ -222,6 +230,7 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
 .description .graph{
     flex: 1;
     padding: 5px;
+    border: none;
 }
 
 
@@ -236,9 +245,6 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
     display: flex;
 }
 
-.header-wallet{
-    display: flex;
-}
 
 .element .name{
     flex: 1;

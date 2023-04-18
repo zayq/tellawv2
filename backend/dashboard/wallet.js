@@ -18,11 +18,13 @@ async function loadwallets(){
         `
         for (const crypto in user.wallets[wallet].cryptos){
             boxCrypto += `
-            <div class="name">${crypto}</div>
-            <div class="price">${( await getCryptoPrice(crypto) * user.wallets[wallet].cryptos[crypto] ).toFixed(2)}</div>
-            <div class="amount"> ${user.wallets[wallet].cryptos[crypto]} </div>
-            <div class="marketcap">431 988 999</div>
-            <div class="graph">Graphique</div>
+            <div class="${crypto}">
+                <div class="name">${crypto}</div>
+                <div class="price">${( await getCryptoPrice(crypto) * user.wallets[wallet].cryptos[crypto] ).toFixed(2)}</div>
+                <div class="amount"> ${user.wallets[wallet].cryptos[crypto]} </div>
+                <div class="marketcap">431 988 999</div>
+                <div class="graph">Graphique</div>
+            </div>
             `
         }
 

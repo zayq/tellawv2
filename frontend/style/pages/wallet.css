@@ -266,3 +266,8 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
     flex: 1;
     padding: 5px;
 }
+
+.logo{
+    height: 50px;
+    width: 50px;
+}

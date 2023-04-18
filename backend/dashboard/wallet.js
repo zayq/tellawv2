@@ -1,6 +1,6 @@
 import { User } from "/backend/user/user.js";
 import { CryptoWallet } from "/backend/user/wallets.js";
-import { getCryptoPrice, getCryptoImageUrl} from "/backend/api/crypto/crypto.js";
+import { getCryptoPrice, getCryptoImageUrl, getMarketCap} from "/backend/api/crypto/crypto.js";
 import { Transaction } from "/backend/user/transaction.js";
 
 let user = new User()
@@ -17,6 +17,7 @@ async function loadwallets(){
         <div class="element">
         `
         for (const crypto in user.wallets[wallet].cryptos){
+            console.log(await getMarketCap(crypto))
             const logo = await getCryptoImageUrl(crypto);
             boxCrypto += `
             <div class="${crypto}">

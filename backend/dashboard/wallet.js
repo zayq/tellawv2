@@ -20,8 +20,10 @@ async function loadwallets(){
             const logo = await getCryptoImageUrl(crypto);
             boxCrypto += `
             <div class="${crypto}">
-                <img class="logo" src="${logo}">
-                <div class="name">${crypto}</div>
+                <div class="name">
+                <img src="${logo}">
+                ${crypto}
+                </div>
                 <div class="price">${( await getCryptoPrice(crypto) * user.wallets[wallet].cryptos[crypto] ).toFixed(2)}</div>
                 <div class="amount"> ${user.wallets[wallet].cryptos[crypto]} </div>
                 <div class="marketcap">431 988 999</div>

@@ -16,3 +16,8 @@ export async function getCryptoPriceChange(crypto) {
     const changeString = change.toFixed(2);
     return changeString;
 }
+export async function getMarketCap(crypto){
+    const response = await fetch("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + crypto + "&tsyms=USD")
+    const data = await response.json();
+    return data.RAW.crypto.USD.MKTCAP
+}

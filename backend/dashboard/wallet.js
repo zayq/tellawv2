@@ -58,7 +58,29 @@ async function loadwallets(){
     }
 }
 
+async function loadleftwallets(){
+    const container = document.getElementById("leftwallets");
+    let boxHtml;
+    for (const wallet in user.wallets){
+        console.log(user.wallet[wallet])
+        boxHtml += `
+         <div>${wallet}</div>
+        `
+
+    }
+    await container.insertAdjacentHTML("beforeend", boxHtml)
+
+}
+
+loadleftwallets()
 loadwallets()
+
+
+
+
+
+
+
 
 const transactionbtn = document.getElementById("create-transaction")
 const closetransaction = document.getElementById("close-transaction-window")

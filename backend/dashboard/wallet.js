@@ -4,7 +4,7 @@ import { getCryptoPrice, getCryptoImageUrl, getMarketCap} from "/backend/api/cry
 import { Transaction } from "/backend/user/transaction.js";
 
 let user = new User()
-console.log(user)
+
 
 async function loadwallets(){
     await user.setUserData();
@@ -12,7 +12,6 @@ async function loadwallets(){
     walletsContainer.innerHTML = '';
     for (const wallet in user.wallets){
         let walletobj = new CryptoWallet(wallet, user.wallets[wallet].cryptos)
-        console.log(walletobj.getTotalBalance())
         let boxCrypto = `
         <div class="element">
         `
@@ -60,43 +59,60 @@ async function loadwallets(){
 
 async function loadleftwallets(){
     const container = document.getElementById("leftwallets");
-    let boxHtml;
+    let boxHtml = "";
     for (const wallet in user.wallets){
-        console.log(user.wallet[wallet])
         boxHtml += `
-         <div>${wallet}</div>
+         <button id="${wallet}-btn">${wallet}</button>
         `
+        const wallettohide = document.getElementById(wallet)
+        wallettohide.style.display = "none"
 
     }
     await container.insertAdjacentHTML("beforeend", boxHtml)
+    const walletNames = Object.keys(user.wallets);
+    const firstWalletName = walletNames[0];
+    document.getElementById(firstWalletName).style.display = "flex"
 
+
+    for (const wallet in user.wallets){
+        const walletbtn = document.getElementById(`${wallet}-btn`);
+        console.log(walletbtn.textContent)
+        walletbtn.addEventListener("click", () => changewallet(walletbtn.textContent));
+    }
 }
 
-loadleftwallets()
-loadwallets()
 
+await loadwallets()
+await loadleftwallets()
 
-
-
-
-
-
-
-const transactionbtn = document.getElementById("create-transaction")
-const closetransaction = document.getElementById("close-transaction-window")
-transactionbtn.addEventListener("click", function(){
-    tooglewindowtransaction("flex")
-})
-closetransaction.addEventListener("click", function(){
-    tooglewindowtransaction("none")
-})
-function tooglewindowtransaction(display){
-    document.getElementById("create-transaction-window").style.display = display;
+function changewallet(walletname){
+    console.log(walletname)
+    for (const wallet in user.wallets){
+        const wallettohide = document.getElementById(wallet)
+        wallettohide.style.display = "none"
+    }
+    document.getElementById(walletname).style.display = "flex"
 }
 
-const createtransactionbtn = document.getElementById("submit-transaction")
 
-createtransactionbtn.addEventListener("click", createtransaction)
+
+
+
+//const transactionbtn = document.getElementById("create-transaction")
+//const closetransaction = document.getElementById("close-transaction-window")
+//transactionbtn.addEventListener("click", function(){
+//    tooglewindowtransaction("flex")
+//})
+//closetransaction.addEventListener("click", function(){
+//    tooglewindowtransaction("none")
+//})
+//function tooglewindowtransaction(display){
+//    document.getElementById("create-transaction-window").style.display = display;
+//}
+
+//const createtransactionbtn = document.getElementById("submit-transaction")
+
+//createtransactionbtn.addEventListener("click", createtransaction)
 
 async function createtransaction(){
     const symbol = document.getElementById("tsymbol").value;

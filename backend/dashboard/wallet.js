@@ -25,7 +25,7 @@ async function loadwallets(){
                 <img src="${logo}">
                 ${crypto}
                 </div>
-                <div class="price">${( await getCryptoPrice(crypto) * user.wallets[wallet].cryptos[crypto] ).toFixed(2)}</div>
+                <div class="price"><i class="fa-sharp fa-solid fa-caret-up"></i><i class="fa-sharp fa-solid fa-caret-down"></i>${( await getCryptoPrice(crypto) * user.wallets[wallet].cryptos[crypto] ).toFixed(2)}</div>
                 <div class="amount"> ${user.wallets[wallet].cryptos[crypto]} </div>
                 <div class="marketcap">${mktcap}</div>
                 <div class="graph">Graphique</div>
@@ -37,18 +37,34 @@ async function loadwallets(){
             <div id="${wallet}" class="walletcontent">
             <div class="wallettitle">
                 <h1>${wallet}</h1>
-                <h3 id="wallettotalbalance">Total Balance: ${ await walletobj.getTotalBalance() }</h3>
+                <div>
+                <h3 id="wallettotalbalance">Current Balance: </h3>
+                <span class="transacbtn">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Transaction
+                </span>
+                </div>
+                <h4 class="balance"> ${ await walletobj.getTotalBalance() } </h4>
             </div>
+
+            <div class="portfolio">
+                <h5>Portfolio</h5>
+                <div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            
             <div class="walletelements">
-            <div class="description">
-            <div class="header-wallet">
-                <div class="name">Name</div>
-                <div class="price">Price</div>
-                <div class="amount">Amount</div>
-                <div class="marketcap">Marketcap</div>
-                <div class="graph">Graphique</div>
+                <div class="description">
+                <div class="header-wallet">
+                    <div class="name">Name</div>
+                    <div class="price">Price</div>
+                    <div class="amount">Amount</div>
+                    <div class="marketcap">Marketcap</div>
+                    <div class="graph">Graphique</div>
+                </div>
             </div>
-        </div>
             `
         boxCrypto += `</div></div>
         </div>

@@ -28,7 +28,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@500&display=swap');
-[data-theme="dark"] {
+
+/*[data-theme="dark"] {
     --secondbgcolor: #1a1a1a;
     --mainbgcolor: #101010;
     --maincolor: #FFFFFF;
@@ -48,6 +49,29 @@ html {
     --red: #da5c54;
 }
 
+*/
+
+[data-theme="dark"] {
+    --secondbgcolor: #1a1a1a;
+    --mainbgcolor: #101010;
+    --maincolor: #FFFFFF;
+    --gris: #7e7e7e;
+    --purple: #9E77ED;
+    --purpleaccent: #7F56D9;
+    --greenbg: #173427;
+    --red: #da5c54;
+}
+
+html {
+    --secondbgcolor: #E4E7EC;
+    --mainbgcolor: #FCFCFD;
+    --maincolor: #101010;
+    --gris: #7e7e7e;
+    --purple: #9E77ED;
+    --purpleaccent: #D6BBFB;
+    --greenbg: #173427;
+    --red: #da5c54;
+}
 *{
     margin: 0;
     transition: .07s;
@@ -60,17 +84,18 @@ body{
     height: 100%;
     max-width: 100%;
     min-height: 100vh;
+    position: relative;
 }
 
 
-
+/*
 section{
     background-color: var(--mainbgcolor);
     display: flex;
     flex-direction: column;
     max-height: 100%;
-}
-section .navbartitle{
+}*/
+ .navbartitle{
     height: 90px;
     background-color: var(--mainbgcolor);
     display: flex;
@@ -153,8 +178,12 @@ section .navbartitle{
 }
 
 /*----------------------------------------*/
-
+/*
 section .content{
+    flex: 1;
+    display: flex;
+}*/
+.content{
     flex: 1;
     display: flex;
 }
@@ -182,23 +211,70 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
 }
 
 .walletcontent .wallettitle{
-    height: 250px;
     padding: 0 50px 0 50px;
+    margin-top: 50px;
 }
 .wallettitle h1{
-    font-size: 4rem;
+    font-size: 5rem;
 }
 .wallettitle h3{
-    font-size: 3rem;
+    font-size: 4rem;
+}
+.wallettitle h4{
+    font-size: 4rem;
+    margin-top: 15px;
+}
+.wallettitle div {
     margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* 
+    color variable probleme
+*/
+.wallettitle div .transacbtn{
+    padding: 8px;
+    color: #FFFF;
+    background: var(--purple);
+    border-radius: 8px;
+    text-decoration: none;
+    font-style: italic;
+    font-weight: bold;
+    cursor: pointer;
+}
+.wallettitle div .transacbtn:hover{
+    scale: 1.05;
+    transition: 0.7s;
+    background: var(--purpleaccent);
 }
 .walletcontent .walletelements{
     flex: 1;
     padding: 0 50px 0 50px;
+    margin-top: 50px;
 }
-.walletelements .description{
 
+.walletcontent .portfolio{
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px 0 50px;
+    margin-top: 50px;
 }
+.portfolio h5{
+    font-size: 2.2rem;
+}
+.portfolio div{
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+}
+.portfolio div div{
+    width: 400px;
+    height: 200px;
+    background: var(--gris);
+}
+
+
 .header-wallet{
     display: flex;
     flex-direction: row;
@@ -257,6 +333,17 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
     display: flex;
 }
 
+/* align icon */
+.element div .price{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+.element div .price i{
+    width: 10px;
+}
+
 
 .element .name{
     flex: 1;
@@ -282,4 +369,28 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
 .logo{
     height: 50px;
     width: 50px;
+}
+/**********************/
+
+.savewallet{
+    background-color: var(--purple);
+    color: var(--mainbgcolor);
+    width: 30%;
+    height: 50px;
+    border-radius: 10px;
+    border: var(--purpleaccent);
+    font-size: 18px;
+    transition: 0.2s;
+    box-shadow: 0 10px 20px -10px var(--purple);
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.savewallet:hover{
+    background-color: var(--purpleaccent);
+    box-shadow: 0 10px 20px -10px var(--purpleaccent);
+    border: var(--purpleaccent);
+    cursor: pointer ;
 }

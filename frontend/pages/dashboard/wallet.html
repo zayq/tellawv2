@@ -8,26 +8,9 @@
     <title>Wallets</title>
     <link rel="icon" href="/frontend/assets/branding/tellawfavnobg.png">
     <link rel="stylesheet" href="/frontend/style/pages/wallet.css">
+    <link rel="stylesheet" href="/frontend/style/items/transaction.css">
 </head>
-<body>
-    <!---
-    
-        <div id="create-transaction-window">
-            <button id="close-transaction-window">Close</button>
-            <input id="buy" type="checkbox" value="buy">BUY
-            <input id="sell" type="checkbox" value="sell">SELL
-            <input id="tsymbol" type="text" placeholder="Crypto Symbol">
-            <input id="tammount" type="number" placeholder="Ammount">
-            <button id="submit-transaction" type="submit">Create</button>
-        </div>
-        
-        <button id="create-transaction">
-            <h1>Create a Transaction</h1>
-        </button>
-        <div id="wallets-container"></div>
-    -->
-
-    
+<body>    
 <div class="navbartitle">
         <div class="title">
             <h1>Dashboard</h1>
@@ -63,11 +46,18 @@
     </div>
     <button class="savewallet" id="saveportfolio">Save Portfolio</button>
 
-
+    
     <div id="wallets-container" class="content">
-
     </div>
-
+    <section id="transaction-window">
+        <div id="header">
+          <h1 id="select">Select a coin</h1>
+        </div>
+        <div id="dropdown-content">
+          <input type="text" id="search-bar" placeholder="Search">
+          <ul id="search-results"></ul>
+        </div>
+    </section>
    
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
@@ -79,5 +69,7 @@
     <script src="/backend/user/transaction.js" type="module"></script>
     <script src="/backend/api/crypto/crypto.js" type="module"></script>
     <script src="/backend/user/cookies.js" type="module"></script>
+    <script src="/backend/dashboard/transaction.js" type="module"></script>
+    <script src="/backend/database/crypto_list.js" type="module"></script>
 </body>
 </html>

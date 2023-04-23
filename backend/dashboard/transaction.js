@@ -2,16 +2,27 @@ import { data } from "/backend/database/crypto_list.js";
 import { getCryptoPrice, getCryptoImageUrl} from "/backend/api/crypto/crypto.js";
 
 
-const searchBar = document.getElementById('search-bar');
-const searchResults = document.getElementById('search-results');
-const dropdownButton = document.getElementById('dropdown-button');
-const dropdownContent = document.getElementById('dropdown-content');
-search()
-function search() {
-  if (!data) {
-    setTimeout(search, 100);
-    return;
-  }
+function createwindowselect(){
+  let windowselect = document.getElementById("transaction-window")
+
+  windowselect.innerHTML = `
+    <div id="header">
+      <h1 id="select">Select a coin</h1>
+    </div>
+    <div id="dropdown-content">
+      <input type="text" id="search-bar" placeholder="Search">
+      <ul id="search-results"></ul>
+    </div>
+  `
+
+  const searchBar = document.getElementById('search-bar');
+  const searchResults = document.getElementById('search-results');
+  search()
+  function search() {
+    if (!data) {
+      setTimeout(search, 100);
+      return;
+    }
 
   const query = searchBar.value.toLowerCase();
   const matches = Object.entries(data).filter(([symbol, name]) => name.toLowerCase().includes(query));
@@ -43,11 +54,15 @@ function search() {
 }
 
 searchBar.addEventListener('input', search);
+}
+
+createwindowselect()
 
 async function createwindowtransac(selectedCoin){
   let transactionwindow = document.getElementById("transaction-window")
   transactionwindow.innerHTML = `
   <div id="header">
+            <i id="transac-comeback" class="fa-solid fa-arrow-left"></i>
             <h1 id="select">Add Transaction</h1>
         </div>
         <div id="options">
@@ -78,6 +93,13 @@ async function createwindowtransac(selectedCoin){
           <button id="createtransaction-btn">Add Transaction</button>
         </div>
   `
+
+  const comeback = document.getElementById("transac-comeback")
+
+  comeback.addEventListener("click", function(){
+    createwindowselect()
+  })
+
   const pricepercoin = document.getElementById("pricepercoin")
 
   pricepercoin.value = await getCryptoPrice(selectedCoin);

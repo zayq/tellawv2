@@ -41,6 +41,14 @@ input[type=number]::-webkit-outer-spin-button {
   align-items: center;
 }
 
+#transac-comeback{
+  margin-right: 10px;
+  font-size: 150%;
+}
+#transac-comeback:hover{
+  cursor: pointer;
+}
+
 #select{
   width: 85%;
 }

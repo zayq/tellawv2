@@ -135,7 +135,7 @@ function closeWindow(){
 // Detect all clicks on the document
 document.addEventListener("click", function(event) {
   // If user clicks inside the element, do nothing
-  if (event.target.closest("#transaction-window") || event.target.closest(".transacbtn")) return
+  if (event.target.closest("#transaction-window") || event.target.closest(".transacbtn") || event.target.closest("#transac-comeback")) return
   // If user clicks outside the element, hide it!
   else{
     if (isWindowOpen){

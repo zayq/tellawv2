@@ -320,7 +320,7 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
     font-size: 1rem;
 }
 .element div{
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #eff2f5;
 }
 .element div div {
     display: flex;

@@ -215,13 +215,15 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
     margin-top: 50px;
 }
 .wallettitle h1{
-    font-size: 5rem;
+    font-size: 4rem;
+    text-decoration: underline 3px;
+    font-style: italic;
 }
 .wallettitle h3{
-    font-size: 4rem;
+    font-size: 3rem;
 }
 .wallettitle h4{
-    font-size: 4rem;
+    font-size: 2rem;
     margin-top: 15px;
 }
 .wallettitle div {
@@ -266,7 +268,8 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
 .portfolio div div{
     width: 400px;
     height: 200px;
-    background: var(--gris);
+    background: white;
+    box-shadow: #9e77ed2d 1px 3px 10px, #9e77ed17 1px 3px 10px;
 }
 .walletcontent .walletelements{
     flex: 1;
@@ -285,9 +288,6 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
     font-size: 1.5rem;
     display: flex;
     flex: 1;
-}
-.header-wallet div{
-    border-right: #ccc solid 2px;
 }
 
 .description .name{

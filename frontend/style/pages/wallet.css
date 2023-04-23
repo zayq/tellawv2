@@ -222,14 +222,13 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
     font-style: italic;
 }
 .wallettitle h3{
-    font-size: 25px;
+    font-size: 15px;
 }
 .wallettitle h4{
-    font-size: 20px;
-    margin-top: 15px;
+    font-size: 28px;
+    margin-top: 5px;
 }
 .wallettitle div {
-    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;

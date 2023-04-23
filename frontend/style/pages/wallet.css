@@ -186,6 +186,7 @@ section .content{
 .content{
     flex: 1;
     display: flex;
+    margin: 0 100px 0 100px;
 }
 .content .allwallets{
     flex: 1;
@@ -211,19 +212,20 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
 }
 
 .walletcontent .wallettitle{
-    padding: 0 50px 0 50px;
-    margin-top: 50px;
+    margin: 15px 50px 0 50px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eff2f5;
 }
 .wallettitle h1{
-    font-size: 4rem;
+    font-size: 32px;
     text-decoration: underline 3px;
     font-style: italic;
 }
 .wallettitle h3{
-    font-size: 3rem;
+    font-size: 25px;
 }
 .wallettitle h4{
-    font-size: 2rem;
+    font-size: 20px;
     margin-top: 15px;
 }
 .wallettitle div {
@@ -255,7 +257,8 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
     display: flex;
     flex-direction: column;
     padding: 0 50px 0 50px;
-    margin-top: 50px;
+    margin-top: 40px;
+    gap: 15px;
 }
 .portfolio h5{
     font-size: 1.4rem;
@@ -274,11 +277,14 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
 .walletcontent .walletelements{
     flex: 1;
     padding: 0 50px 0 50px;
-    margin-top: 50px;
+    margin-top: 70px;
 }
 .walletelements .element{
     text-transform: uppercase;
     font-weight: 300;
+}
+.walletelements .element div:hover{
+    background: #fafafa;
 }
 
 .header-wallet{

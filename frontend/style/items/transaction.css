@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#overlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+#transaction-window{
+  display: none;
+  box-shadow: rgba(88, 102, 126, 0.08) 0px 4px 24px, rgba(88, 102, 126, 0.12) 0px 1px 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 16px;
+  height: 45rem;
+  width: 35rem;
+  font-family: 'Inter', sans-serif;
+}
+
+#header{
+  position: absolute;
+  top: 5%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#select{
+  width: 85%;
+}
+
+#dropdown-content{
+  margin-top: 5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-bar{
+  padding-left: 15px;
+  position: absolute;
+  top: 13%;
+  width: 85%;
+  height: 2.5rem;
+  border: #ffffff00;
+  border-radius: 8px;
+  background-color: #eff2f5;
+
+}
+
+
+#search-bar:focus{
+  outline: none;
+
+}
+
+#search-results{
+  margin-top: 0.1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  margin-left: 5%;
+  position: absolute;
+  top: 23%;
+  left: -7%;
+}
+
+li{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 82%;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+li:hover{
+  background-color: #f8fafd;
+  border-radius: 5px;
+}
+
+#selectimage{
+  width: 30px;
+}
+
+.symbolspan{
+  color: #808ca0;
+  margin-left: 0.3rem;
+}
+
+#options{
+  position: absolute;
+  border-radius: 10px;
+  top: 12%;
+  background-color: #eff2f5;
+  width: 85%;
+  height: 7%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.option-transac{
+  background-color: #eff2f5;
+  width: 47%;
+  height: 80%;
+  border-radius: 10px;
+  border: #ffffff;
+  cursor: pointer;
+}
+
+.option-transac.active{
+  background-color: #ffffff;
+  width: 47%;
+  height: 80%;
+  border-radius: 10px;
+  border: #ffffff;
+  cursor: pointer;
+}
+
+#coinselected{
+  height: 8%;
+  position: absolute;
+  top: 23%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #a6b0c3;
+  width: 82%;
+  border-radius: 15px;
+  padding-left: 1rem;
+}
+
+#selectedcoin{
+  font-size: 1rem;
+  margin-left: 5px;
+}
+
+#selectedcoinlogo{
+  width: 40px;
+}
+
+.symbolspanselected{
+  color: #808ca0;
+  font-size: 1rem;
+  margin-left: 8px;
+
+}
+
+#inputs{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 33%;
+  width: 85%;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.input{
+  width: 112.5%;
+  margin-bottom: 15px;
+}
+
+.inputin{
+  padding-left: 15px;
+  top: 13%;
+  width: 85%;
+  height: 2.5rem;
+  border: 1px solid #a6b0c3;
+  border-radius: 15px;
+  background-color: #ffffff;
+}
+
+
+.inputin{
+  outline: none;
+}
+
+#Total{
+  position: absolute;
+  top: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  background-color: #eff2f5;
+  width: 85%;
+  height: 12%;
+  border-radius: 20px;
+}
+
+#totalspent{
+  width: 90%;
+  color: #58667e;
+  height: 40%;
+  margin-top: 10px;
+}
+
+#totalspentammount{
+  width: 90%;
+}
+
+#createtransaction{
+  position: absolute;
+  top: 86%;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+#createtransaction-btn{
+  background-color: #9E77ED;
+  border: #9E77ED;
+  border-radius: 15px;
+  width: 85%;
+  height: 3.5rem;
+  color: #ffffff;
+  font-size: large;
+}

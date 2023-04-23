@@ -25,7 +25,7 @@ async function loadwallets(){
                 ${crypto}
                 </div>
                 <div class="price"><i class="fa-sharp fa-solid fa-caret-up"></i><i class="fa-sharp fa-solid fa-caret-down"></i>${( await getCryptoPrice(crypto) * user.wallets[wallet].cryptos[crypto] ).toFixed(2)}</div>
-                <div class="amount"> ${user.wallets[wallet].cryptos[crypto]} </div>
+                <div class="amount"> ${user.wallets[wallet].cryptos[crypto].toFixed(2)} </div>
                 <div class="marketcap">${mktcap}</div>
                 <div class="graph">Graphique</div>
             </div>
@@ -38,7 +38,7 @@ async function loadwallets(){
                 <h1>${wallet}</h1>
                 <div>
                 <h3 id="wallettotalbalance">Current Balance: </h3>
-                <span class="transacbtn">
+                <span id="transacbtn" class="transacbtn">
                     <i class="fa-solid fa-plus"></i>
                     Add Transaction
                 </span>
@@ -112,25 +112,49 @@ function changewallet(walletname){
 
 
 
+const transactionbtns = document.querySelectorAll(".transacbtn");
+const transactionWindow = document.getElementById("transaction-window");
+let isWindowOpen = false
 
+transactionbtns.forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    openWindow();
+  });
+});
 
-//const transactionbtn = document.getElementById("create-transaction")
-//const closetransaction = document.getElementById("close-transaction-window")
-//transactionbtn.addEventListener("click", function(){
-//    tooglewindowtransaction("flex")
-//})
-//closetransaction.addEventListener("click", function(){
-//    tooglewindowtransaction("none")
-//})
-//function tooglewindowtransaction(display){
-//    document.getElementById("create-transaction-window").style.display = display;
-//}
+function openWindow(){
+    transactionWindow.style.display = "flex";
+    isWindowOpen = true;
+}
 
-//const createtransactionbtn = document.getElementById("submit-transaction")
+function closeWindow(){
+    transactionWindow.style.display = "none";
+    isWindowOpen = false;
+}
 
-//createtransactionbtn.addEventListener("click", createtransaction)
+// Detect all clicks on the document
+document.addEventListener("click", function(event) {
+  // If user clicks inside the element, do nothing
+  if (event.target.closest("#transaction-window") || event.target.closest(".transacbtn")) return
+  // If user clicks outside the element, hide it!
+  else{
+    if (isWindowOpen){
+        closeWindow()
+    }
+
+  }
+
+})
+
 
 async function createtransaction(){
+    let wallet;
+    const walletContents = document.querySelectorAll('.walletcontent');
+    walletContents.forEach(walletContent => {
+    if (getComputedStyle(walletContent).display === 'flex') {
+        wallet = walletContent.id;
+    }
+    });
     const symbol = document.getElementById("tsymbol").value;
     const ammount = document.getElementById("tammount").value;
     const buy = document.getElementById("buy").checked
@@ -143,7 +167,7 @@ async function createtransaction(){
     if( sell == true){
         type = false
     }
-    let transaction = new Transaction(symbol, ammount, type, user.id, "Binance")
+    let transaction = new Transaction(symbol, ammount, type, user.id, wallet)
     await transaction.transac();
     loadwallets();
 }

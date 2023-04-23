@@ -61,7 +61,7 @@ createwindowselect()
 async function createwindowtransac(selectedCoin){
   let transactionwindow = document.getElementById("transaction-window")
   transactionwindow.innerHTML = `
-  <div id="header">
+        <div id="header">
             <i id="transac-comeback" class="fa-solid fa-arrow-left"></i>
             <h1 id="select">Add Transaction</h1>
         </div>
@@ -72,7 +72,7 @@ async function createwindowtransac(selectedCoin){
         <div id="coinselected">
           <img id="selectedcoinlogo" src="${await getCryptoImageUrl(selectedCoin)}">
           <h1 id="selectedcoin">${data[selectedCoin]}</h1>
-          <h2 class="symbolspanselected">${selectedCoin.toUpperCase()}</h2>
+          <h2 id="symbolselected" class="symbolspanselected">${selectedCoin.toUpperCase()}</h2>
         </div>
         <div id="inputs">
             <div class="input">
@@ -134,4 +134,27 @@ async function createwindowtransac(selectedCoin){
     sell.classList.add("active");
     buy.classList.remove("active")
   })
+  const addtransactionbtn = document.getElementById("createtransaction-btn")
+
+  addtransactionbtn.addEventListener("click", createtransaction)
+}
+
+
+async function createtransaction(){
+  let wallet;
+  const walletContents = document.querySelectorAll('.walletcontent');
+  walletContents.forEach(walletContent => {
+  if (getComputedStyle(walletContent).display === 'flex') {
+      wallet = walletContent.id;
+  }
+  });
+
+  const symbol = document.getElementById("symbolselected").textContent;
+  const ammount = document.getElementById("quantity-input").value;
+
+  console.log(wallet, symbol, ammount)
+  let type;
+  //let transaction = new Transaction(symbol, ammount, type, user.id, wallet)
+  //await transaction.transac();
+  //loadwallets();
 }

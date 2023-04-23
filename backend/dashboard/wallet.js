@@ -147,27 +147,4 @@ document.addEventListener("click", function(event) {
 })
 
 
-async function createtransaction(){
-    let wallet;
-    const walletContents = document.querySelectorAll('.walletcontent');
-    walletContents.forEach(walletContent => {
-    if (getComputedStyle(walletContent).display === 'flex') {
-        wallet = walletContent.id;
-    }
-    });
-    const symbol = document.getElementById("tsymbol").value;
-    const ammount = document.getElementById("tammount").value;
-    const buy = document.getElementById("buy").checked
-    const sell = document.getElementById("sell").checked
-    let type;
 
-    if ( buy == true){
-        type = true
-    }
-    if( sell == true){
-        type = false
-    }
-    let transaction = new Transaction(symbol, ammount, type, user.id, wallet)
-    await transaction.transac();
-    loadwallets();
-}

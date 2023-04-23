@@ -269,7 +269,7 @@ box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
     width: 400px;
     height: 200px;
     background: white;
-    box-shadow: #9e77ed2d 1px 3px 10px, #9e77ed17 1px 3px 10px;
+    box-shadow: #9e77ed2d 0px 0px 20px 3px, #9e77ed17 1px 3px 10px;;
 }
 .walletcontent .walletelements{
     flex: 1;

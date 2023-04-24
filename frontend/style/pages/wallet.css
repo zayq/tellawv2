@@ -85,6 +85,7 @@ body{
     max-width: 100%;
     min-height: 100vh;
     position: relative;
+    background-color: var(--mainbgcolor);
 }
 
 
@@ -182,6 +183,18 @@ section{
     display: flex;
     margin: 0 75px 0 75px;
 }
+@media screen and (min-width: 1300px) {
+    .contents{
+        max-width: 1200px;
+        margin: auto;
+    }
+}
+@media screen and (min-width: 1800px) {
+    .contents{
+        max-width: 1600px;
+        margin: auto;
+    }
+}
 
 
 
@@ -222,7 +235,7 @@ section{
     margin-bottom: 7px;
 }
 .allwallets .w:hover{
-    box-shadow: #9e77ed2d 0px 0px 10px 2px, #9e77ed17 1px 2px 5px;
+    background: rgb(239, 242, 245);
 }
 /*----------------------------------------*/
 /*

@@ -77,8 +77,16 @@ async function loadleftwallets(){
     const container = document.getElementById("leftwallets");
     let boxHtml = "";
     for (const wallet in user.wallets){
+      //<div id="${wallet}-btn">${wallet}</div>
         boxHtml += `
-         <button id="${wallet}-btn">${wallet}</button>
+         <div id="${wallet}-btn" class="w">
+         <div class="logoimg">img</div>
+         <div>
+         <p>${wallet}</p>
+         <p>2</p>
+         </div>
+
+         </div>
         `
         const wallettohide = document.getElementById(wallet)
         wallettohide.style.display = "none"

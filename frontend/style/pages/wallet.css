@@ -180,8 +180,7 @@ section{
 /*----------------------------------------*/
 .contents{
     display: flex;
-    width: 965px;
-    margin: auto;
+    margin: 0 75px 0 75px;
 }
 
 
@@ -232,8 +231,8 @@ section .content{
     display: flex;
 }*/
 .content{
-    width: 800px;
     display: flex;
+    flex: 1;
 }
 /*----------------------------------------*/
 

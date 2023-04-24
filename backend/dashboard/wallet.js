@@ -85,7 +85,6 @@ async function loadleftwallets(){
          <p>${wallet}</p>
          <p>2</p>
          </div>
-
          </div>
         `
         const wallettohide = document.getElementById(wallet)
@@ -100,8 +99,7 @@ async function loadleftwallets(){
 
     for (const wallet in user.wallets){
         const walletbtn = document.getElementById(`${wallet}-btn`);
-        console.log(walletbtn.textContent)
-        walletbtn.addEventListener("click", () => changewallet(walletbtn.textContent));
+        walletbtn.addEventListener("click", () => changewallet(walletbtn.querySelector("p").textContent));
     }
 }
 

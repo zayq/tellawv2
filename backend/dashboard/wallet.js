@@ -24,7 +24,7 @@ async function loadwallets(){
                 <img src="${logo}">
                 ${crypto}
                 </div>
-                <div class="price"><i class="fa-sharp fa-solid fa-caret-up"></i><i class="fa-sharp fa-solid fa-caret-down"></i>${( await getCryptoPrice(crypto) * user.wallets[wallet].cryptos[crypto] ).toFixed(2)}</div>
+                <div class="price"><i class="fa-sharp fa-solid fa-caret-up"></i><i class="fa-sharp fa-solid fa-caret-down"></i>${await getCryptoPrice(crypto)}</div>
                 <div class="amount"> ${user.wallets[wallet].cryptos[crypto].toFixed(2)} </div>
                 <div class="marketcap">${mktcap}</div>
                 <div class="graph">Graphique</div>

@@ -370,3 +370,9 @@ async function loadDoughnutGraph(walletname){
   });
 }
 
+
+
+
+
+const ButtonSetting = document.getElementById("")
+

@@ -6,74 +6,76 @@ import { data } from "/backend/database/crypto_list.js";
 let user = new User()
 
 
-async function loadwallets(){
-    await user.setUserData();
-    let walletsContainer = document.getElementById("wallets-container");
+async function loadWallet(wallet){
+  await user.setUserData();
+  let walletsContainer = document.getElementById("wallets-container");
     walletsContainer.innerHTML = '';
-    for (const wallet in user.wallets){
-        let walletobj = new CryptoWallet(wallet, user.wallets[wallet].cryptos)
-        let boxCrypto = `
-        <div class="element">
-        `
-        for (const crypto in user.wallets[wallet].cryptos){
-            const mktcap = await getMarketCap(crypto)
-            const logo = await getCryptoImageUrl(crypto);
-            boxCrypto += `
-            <div class="${crypto}">
-                <div class="name">
-                <img src="${logo}">
-                ${crypto}
-                </div>
-                <div class="price"><i class="fa-sharp fa-solid fa-caret-up"></i><i class="fa-sharp fa-solid fa-caret-down"></i>${await getCryptoPrice(crypto)}</div>
-                <div class="amount"> ${user.wallets[wallet].cryptos[crypto].toFixed(2)} </div>
-                <div class="marketcap">${mktcap}</div>
-                <div class="graph">Graphique</div>
-            </div>
-            `
-        }
+      let walletobj = new CryptoWallet(wallet, user.wallets[wallet].cryptos)
+      let boxCrypto = `
+      <div class="element">
+      `
+      for (const crypto in user.wallets[wallet].cryptos){
+          const mktcap = await getMarketCap(crypto)
+          const logo = await getCryptoImageUrl(crypto);
+          boxCrypto += `
+          <div class="${crypto}">
+              <div class="name">
+              <img src="${logo}">
+              ${crypto}
+              </div>
+              <div class="price"><i class="fa-sharp fa-solid fa-caret-up"></i><i class="fa-sharp fa-solid fa-caret-down"></i>${await getCryptoPrice(crypto)}</div>
+              <div class="amount"> ${user.wallets[wallet].cryptos[crypto].toFixed(2)} </div>
+              <div class="marketcap">${mktcap}</div>
+              <div class="graph">Graphique</div>
+          </div>
+          `
+      }
 
-        let boxHtml = `
-            <div id="${wallet}" class="walletcontent">
-            <div class="wallettitle">
-                <h1>${wallet}</h1>
-                <div>
-                <h3 id="wallettotalbalance">Current Balance: </h3>
-                <span id="transacbtn" class="transacbtn">
-                    <i class="fa-solid fa-plus"></i>
-                    Add Transaction
-                </span>
-                </div>
-                <h4 class="balance"> ${ await walletobj.getTotalBalance() } </h4>
-            </div>
+      let boxHtml = `
+          <div id="${wallet}" class="walletcontent">
+          <div class="wallettitle">
+              <h1>${wallet}</h1>
+              <div>
+              <h3 id="wallettotalbalance">Current Balance: </h3>
+              <span id="transacbtn" class="transacbtn">
+                  <i class="fa-solid fa-plus"></i>
+                  Add Transaction
+              </span>
+              </div>
+              <h4 class="balance"> ${ await walletobj.getTotalBalance() } </h4>
+          </div>
 
-            <div class="portfolio">
-                <h5>Portfolio</h5>
-                <div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-            
-            <div class="walletelements">
-                <div class="description">
-                <div class="header-wallet">
-                    <div class="name">Name</div>
-                    <div class="price">Price</div>
-                    <div class="amount">Amount</div>
-                    <div class="marketcap">Marketcap</div>
-                    <div class="graph">Graphique</div>
-                </div>
-            </div>
-            `
-        boxCrypto += `</div></div>
-        </div>
-    </div>`
-        boxHtml += boxCrypto
-    await walletsContainer.insertAdjacentHTML('beforeend', boxHtml);
-    }
+          <div class="portfolio">
+              <h5>Portfolio</h5>
+              <div>
+                  <div></div>
+                  <div>
+                    <canvas id="donutchart">
+                    </canvas>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="walletelements">
+              <div class="description">
+              <div class="header-wallet">
+                  <div class="name">Name</div>
+                  <div class="price">Price</div>
+                  <div class="amount">Amount</div>
+                  <div class="marketcap">Marketcap</div>
+                  <div class="graph">Graphique</div>
+              </div>
+          </div>
+          `
+      boxCrypto += `</div></div>
+      </div>
+  </div>`
+      boxHtml += boxCrypto
+  await walletsContainer.insertAdjacentHTML('beforeend', boxHtml);
 }
 
 async function loadleftwallets(){
+    await user.setUserData();
     const container = document.getElementById("leftwallets");
     let boxHtml = "";
     for (const wallet in user.wallets){
@@ -87,34 +89,21 @@ async function loadleftwallets(){
          </div>
          </div>
         `
-        const wallettohide = document.getElementById(wallet)
-        wallettohide.style.display = "none"
 
     }
     await container.insertAdjacentHTML("beforeend", boxHtml)
-    const walletNames = Object.keys(user.wallets);
-    const firstWalletName = walletNames[0];
-    document.getElementById(firstWalletName).style.display = "flex"
-
 
     for (const wallet in user.wallets){
         const walletbtn = document.getElementById(`${wallet}-btn`);
-        walletbtn.addEventListener("click", () => changewallet(walletbtn.querySelector("p").textContent));
+        walletbtn.addEventListener("click", () => loadWallet(walletbtn.querySelector("p").textContent));
     }
+    const walletNames = Object.keys(user.wallets);
+    const firstWalletName = walletNames[0];
+    await loadWallet(firstWalletName)
 }
 
-
-await loadwallets()
 await loadleftwallets()
 
-function changewallet(walletname){
-    console.log(walletname)
-    for (const wallet in user.wallets){
-        const wallettohide = document.getElementById(wallet)
-        wallettohide.style.display = "none"
-    }
-    document.getElementById(walletname).style.display = "flex"
-}
 
 
 
@@ -323,3 +312,61 @@ function createwindowselect(){
      }, 500);
     //location.reload();
   }
+
+var donut = document.getElementById("donutchart").getContext('2d');
+
+async function getAssetsForGraph(cryptos){
+  const chartData = [];
+
+  for (const [name, amount] of Object.entries(cryptos)) {
+    let price = await getCryptoPrice(name)
+    let holding = price * amount
+    chartData.push({
+      name,
+      holding,
+    });
+  }
+
+  return chartData;
+}
+
+async function loadDoughnutGraph(walletname){
+  var donut = document.getElementById("donutchart").getContext('2d');
+  const chartData = await getAssetsForGraph(user.wallets[walletname].cryptos);
+  const myChart = new Chart(donut, {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: chartData.map(crypto => crypto.holding),
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.5)',
+          'rgba(54, 162, 235, 0.5)',
+          'rgba(255, 206, 86, 0.5)',
+          // Add more colors here if needed
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          // Add more colors here if needed
+        ],
+        borderWidth: 0,
+        label: '', // Optional label for the dataset
+      }],
+      labels: chartData.map(crypto => crypto.name),
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+        display: true,
+        position: 'bottom',
+      },
+      title: {
+        display: true,
+        text: 'Doughnut Chart'
+      }
+    }
+  });
+}
+

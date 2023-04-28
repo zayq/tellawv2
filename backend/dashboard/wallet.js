@@ -374,5 +374,26 @@ async function loadDoughnutGraph(walletname){
 
 
 
-const ButtonSetting = document.getElementById("")
+const ButtonSetting = document.getElementById("settingsbtn");
+const SettingPage = document.getElementById("settingpage");
+var isSettingWindowOpen = false; 
+ButtonSetting.addEventListener("click", openSettingWindow)
+document.addEventListener("click",function (event){
+  if(event.target.closest("#settingpage") || event.target.closest("#settingsbtn"))
+  return
+  else{
+    if(isSettingWindowOpen){
+      closeSettingWindow()
+    }
+  }
+});
+function closeSettingWindow(){
+  SettingPage.style.display = "none";
+  isSettingWindowOpen = false
+}
+function openSettingWindow(){
+  SettingPage.style.display = "flex";
+  isSettingWindowOpen = true
+}
+
 

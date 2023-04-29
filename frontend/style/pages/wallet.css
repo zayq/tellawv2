@@ -148,6 +148,34 @@ section{
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: relative;
+}
+.userpic img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.userpic img:hover
+.userinfo .userpic .minisettings{
+    display: none;
+    width: 175px;
+    height: 200px;
+    border-radius: 25px;
+    position: absolute;
+    background-color: rgb(208, 208, 208);
+    top: 50px;
+    right: 0;
+    padding: 15px;
+}
+.minisettings div{
+    color: var(--maincolor);
+    display: flex;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-bottom: 1px solid #ccc;
+}
+.minisettings div i{
+    margin-right: 10px;
 }
 .userinfo .iconinfo{
     display: flex;
@@ -236,6 +264,12 @@ section{
 }
 .allwallets .w:hover{
     background: rgb(239, 242, 245);
+}
+
+.allwallets .w .logoimg img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 /*----------------------------------------*/
 /*
@@ -480,7 +514,7 @@ section .content{
     display: none;
     left: 50%;
     transform: translate(-50%, -50%);
-    top: 50%;
+    top: 400px;
     height: 60vh;
     width: 80%;
     justify-content: center;
@@ -512,9 +546,15 @@ section .content{
     flex-direction: column;
     padding: 20px;
 }
+.settings .settingauth{
+    flex: 5;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+}
 
 
-.settingprofile h1{
+.settingprofile h1, .settingauth h1{
     font-size: 25px;
     padding-bottom: 15px;
     border-bottom: solid 1px gray;
@@ -562,17 +602,21 @@ section .content{
     margin-bottom: 10px;
     margin-top: 10px;
 }
+.settingauth .email p{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
 
-.password .passinput, .username .nameinput{
+.password .passinput, .username .nameinput, .email .emailinput{
     position: relative;
 }
-.password .passinput span, .username .nameinput span{
+.password .passinput span, .username .nameinput span, .email .emailinput span{
     position: absolute;
     right: 5px;
     top: 50%;
     transform: translateY(-50%);
 }
-.password .passinput input, .username .nameinput input{
+.password .passinput input, .username .nameinput input, .email .emailinput input{
     background-color: transparent;
     border: 1px solid rgb(64, 66, 78);
     border-radius: 8px;
@@ -587,7 +631,7 @@ section .content{
     line-height: 21px;
 }
 
-.settingprofile button{
+.settingprofile button, .settingauth button{
     background-color: var(--purple);
     color: var(--mainbgcolor);
     width: 30%;
@@ -605,3 +649,19 @@ section .content{
 
 
 /**********************/
+
+
+@media screen and (max-width: 1400px) {
+    .contents {
+        margin: 0 30px;
+    }
+    .portfolio div div{
+        width: 275px;
+        background: green;
+    }
+    .contents .allwallets {
+        margin-top: 100px;
+        margin-right: 15px;
+        gap: 6px;
+    }
+}

@@ -82,7 +82,9 @@ async function loadleftwallets(){
       //<div id="${wallet}-btn">${wallet}</div>
         boxHtml += `
          <div id="${wallet}-btn" class="w">
-         <div class="logoimg">img</div>
+         <div class="logoimg">
+         <img src="https://i.seadn.io/gcs/files/0ad6abfac28283827e40a580e5e2a3b7.gif?auto=format&w=1000" alt="">
+         </div>
          <div>
          <p>${wallet}</p>
          <p>2</p>
@@ -397,3 +399,18 @@ function openSettingWindow(){
 }
 
 
+const ProfilePage = document.getElementById("settingprofilepage");
+const ProfileBtn = document.getElementById("profilebtn");
+const SecurityBtn = document.getElementById("accountsecuritybtn");
+const SecurityPage = document.getElementById("settingaccountsecuritypage");
+
+SecurityBtn.addEventListener("click", openSecurityPage)
+function openSecurityPage(){
+  SecurityPage.style.display = "flex"
+  ProfilePage.style.display = "none"
+}
+ProfileBtn.addEventListener("click", openProfilePage)
+function openProfilePage(){
+  SecurityPage.style.display = "none"
+  ProfilePage.style.display = "flex"
+}

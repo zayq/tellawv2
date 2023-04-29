@@ -665,3 +665,61 @@ section .content{
         gap: 6px;
     }
 }
+
+@media screen and (max-width: 1000px) {
+    .navbartitle .title h1 {
+        max-width: 200px;
+        font-size: 1.8rem;
+    }
+    .userpic p{
+        font-size: 0.8rem;
+    }
+
+    .contents {
+        margin: 0 20px;
+    }
+    .contents .allwallets {
+        margin-right: 10px;
+        gap: 4px;
+    }
+    .allwallets div {
+        width: 100px;
+        border-radius: 8px;
+    }
+    .allwallets .w .logoimg img {
+        width: 30px;
+        height: 30px;
+    }
+
+
+
+
+    .wallettitle h1 {
+        font-size: 25px;
+    }
+    .wallettitle h3 {
+        font-size: 12px;
+    }
+    .wallettitle h4 {
+        font-size: 20px;
+        margin-top: 5px;
+    }
+    .wallettitle div .transacbtn {
+        font-size: 12px;
+    }
+
+
+
+    .walletcontent .portfolio {
+        margin-top: 20px;
+        gap: 12px;
+        font-size: 20px;
+    }
+    .portfolio div div {
+        width: 225px;
+        background: green;
+    }
+    #donutchart{
+        width: 225px;
+    }
+}

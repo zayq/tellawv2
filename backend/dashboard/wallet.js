@@ -9,7 +9,11 @@ let user = new User()
 async function loadWallet(wallet){
   await user.setUserData();
   let walletsContainer = document.getElementById("wallets-container");
-    walletsContainer.innerHTML = '';
+    walletsContainer.innerHTML = `
+        <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    `;
       let walletobj = new CryptoWallet(wallet, user.wallets[wallet].cryptos)
       let boxCrypto = `
       <div class="element">
@@ -71,7 +75,10 @@ async function loadWallet(wallet){
       </div>
   </div>`
       boxHtml += boxCrypto
-  await walletsContainer.insertAdjacentHTML('beforeend', boxHtml);
+    walletsContainer.innerHTML = boxHtml;
+  const transactionbtns = document.getElementById("transacbtn");
+  transactionbtns.addEventListener("click", openWindow)
+
 }
 
 async function loadleftwallets(){
@@ -85,13 +92,24 @@ async function loadleftwallets(){
          <div class="logoimg">img</div>
          <div>
          <p>${wallet}</p>
-         <p>2</p>
+         <p>Crypto</p>
          </div>
          </div>
         `
 
     }
     await container.insertAdjacentHTML("beforeend", boxHtml)
+
+    let walletbtnhtml = `
+      <span id="createwallet-btn" class="createwallet-btn">
+        <i class="fa-solid fa-plus"></i>
+        Create Wallet
+      </span>
+    `
+
+    await container.insertAdjacentHTML("beforeend", walletbtnhtml)
+
+    
 
     for (const wallet in user.wallets){
         const walletbtn = document.getElementById(`${wallet}-btn`);
@@ -107,15 +125,10 @@ await loadleftwallets()
 
 
 
-const transactionbtns = document.querySelectorAll(".transacbtn");
 const transactionWindow = document.getElementById("transaction-window");
 let isWindowOpen = false
 
-transactionbtns.forEach(function(btn) {
-  btn.addEventListener("click", function() {
-    openWindow();
-  });
-});
+
 
 function openWindow(){
     transactionWindow.style.display = "flex";

@@ -1,6 +1,6 @@
 import { User } from "/backend/user/user.js";
 import { CryptoWallet } from "/backend/user/wallets.js";
-import { getCryptoPrice, getCryptoImageUrl, getMarketCap} from "/backend/api/crypto/crypto.js";
+import { getCryptoPrice, getCryptoImageUrl, getMarketCap, getCryptoPriceChange1h, getCryptoPriceChange24h, getCryptoPriceChange7d} from "/backend/api/crypto/crypto.js";
 import { Transaction } from "/backend/user/transaction.js";
 import { data } from "/backend/database/crypto_list.js";
 import { getCryptoPriceChange } from "../api/crypto/crypto.js";
@@ -148,8 +148,6 @@ async function loadleftwallets(){
 }
 
 await loadleftwallets()
-
-
 
 
 const transactionWindow = document.getElementById("transaction-window");
@@ -468,3 +466,6 @@ function openProfilePage(){
   SecurityPage.style.display = "none"
   ProfilePage.style.display = "flex"
 }
+
+
+

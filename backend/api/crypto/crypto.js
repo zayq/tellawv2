@@ -21,3 +21,25 @@ export async function getMarketCap(crypto){
     const data = await response.json();
     return data.RAW[crypto.toUpperCase()].USD.MKTCAP.toFixed(2)
 }
+
+export async function getCryptoPriceChange1h(crypto) {
+    const response = await fetch(`https://min-api.cryptocompare.com/data/v2/histohour?fsym=${crypto}&tsym=USD&limit=2`);
+    const data = await response.json();
+    const change = ((data.Data.Data[1].close - data.Data.Data[0].close) / data.Data.Data[0].close) * 100;
+    const changeString = change.toFixed(2);
+    return changeString;
+}
+export async function getCryptoPriceChange24h(crypto) {
+    const response = await fetch(`https://min-api.cryptocompare.com/data/v2/histoday?fsym=${crypto}&tsym=USD&limit=2`);
+    const data = await response.json();
+    const change = ((data.Data.Data[1].close - data.Data.Data[0].close) / data.Data.Data[0].close) * 100;
+    const changeString = change.toFixed(2);
+    return changeString;
+}
+export async function getCryptoPriceChange7d(crypto) {
+    const response = await fetch(`https://min-api.cryptocompare.com/data/v2/histoday?fsym=${crypto}&tsym=USD&limit=8`);
+    const data = await response.json();
+    const change = ((data.Data.Data[7].close - data.Data.Data[0].close) / data.Data.Data[0].close) * 100;
+    const changeString = change.toFixed(2);
+    return changeString;
+}

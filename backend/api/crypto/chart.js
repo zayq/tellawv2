@@ -69,7 +69,6 @@ export const defaultCryptoChartOptions = {
     const chartData = historicalData.map(data => {
         const time = new Date(data.time);
         const value = (data.open + data.high + data.low + data.close) / 4;
-        console.log( { time: time.getTime(), value: value.toFixed(2) } )
         return { time: time.getTime(), value: value.toFixed(2) };
     });
 

@@ -348,6 +348,7 @@ function createwindowselect(){
     let transaction = new Transaction(symbol, ammount, type, user.id, wallet)
     await transaction.transac();
     setTimeout(function(){
+        document.getElementById("transaction-window").style.display = "none"
         loadWallet(wallet);
      }, 500);
   }

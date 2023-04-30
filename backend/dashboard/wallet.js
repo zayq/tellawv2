@@ -47,9 +47,9 @@ async function loadWallet(wallet){
                 <div class="price p ${priceColorClass}">
                     ${pricechangebool}
                 </div>
-                <div class="amount">1h</div>
-                <div class="amount">24h</div>
-                <div class="amount">7d</div>
+                <div class="amount">${await getCryptoPriceChange1h(crypto)}</div>
+                <div class="amount">${await getCryptoPriceChange24h(crypto)}</div>
+                <div class="amount">${await getCryptoPriceChange7d(crypto)}</div>
                 <div class="amount">${user.wallets[wallet].cryptos[crypto].toFixed(2)}</div>
                 <div class="marketcap">${mktcap}</div>
                 <div class="graph" id="${crypto}-graph"></div>

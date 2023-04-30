@@ -348,9 +348,8 @@ function createwindowselect(){
     let transaction = new Transaction(symbol, ammount, type, user.id, wallet)
     await transaction.transac();
     setTimeout(function(){
-        location.reload();
+        loadWallet(wallet);
      }, 500);
-    //location.reload();
   }
 
 var donut = document.getElementById("donutchart").getContext('2d');

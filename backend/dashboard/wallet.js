@@ -47,6 +47,9 @@ async function loadWallet(wallet){
                 <div class="price p ${priceColorClass}">
                     ${pricechangebool}
                 </div>
+                <div class="amount">1h</div>
+                <div class="amount">24h</div>
+                <div class="amount">7d</div>
                 <div class="amount">${user.wallets[wallet].cryptos[crypto].toFixed(2)}</div>
                 <div class="marketcap">${mktcap}</div>
                 <div class="graph" id="${crypto}-graph"></div>
@@ -84,6 +87,9 @@ async function loadWallet(wallet){
               <div class="header-wallet">
                   <div class="name">Name</div>
                   <div class="price">Price</div>
+                  <div class="amount">1h</div>
+                  <div class="amount">24h</div>
+                  <div class="amount">7d</div>
                   <div class="amount">Amount</div>
                   <div class="marketcap">Marketcap</div>
                   <div class="graph">Graphique</div>
@@ -115,7 +121,7 @@ async function loadleftwallets(){
         boxHtml += `
          <div id="${wallet}-btn" class="w">
          <div class="logoimg">
-         <img src="https://i.seadn.io/gcs/files/0ad6abfac28283827e40a580e5e2a3b7.gif?auto=format&w=1000" alt="">
+         <img src="https://i.seadn.io/gcs/files/b933aa01a3527e9939a51cf4efbd3c92.gif?auto=format&w=384" alt="">
          </div>
          <div>
          <p>${wallet}</p>

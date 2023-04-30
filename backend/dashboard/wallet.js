@@ -3,6 +3,8 @@ import { CryptoWallet } from "/backend/user/wallets.js";
 import { getCryptoPrice, getCryptoImageUrl, getMarketCap} from "/backend/api/crypto/crypto.js";
 import { Transaction } from "/backend/user/transaction.js";
 import { data } from "/backend/database/crypto_list.js";
+import { getCryptoPriceChange } from "../api/crypto/crypto.js";
+import { defaultCryptoChartOptions, getCryptoChartHistoricalData, loadCryptoChart } from "../api/crypto/chart.js";
 let user = new User()
 
 
@@ -19,21 +21,38 @@ async function loadWallet(wallet){
       <div class="element">
       `
       for (const crypto in user.wallets[wallet].cryptos){
-          const mktcap = await getMarketCap(crypto)
-          const logo = await getCryptoImageUrl(crypto);
-          boxCrypto += `
-          <div class="${crypto}">
-              <div class="name">
-              <img src="${logo}">
-              ${crypto}
-              </div>
-              <div class="price"><i class="fa-sharp fa-solid fa-caret-up"></i><i class="fa-sharp fa-solid fa-caret-down"></i>${await getCryptoPrice(crypto)}</div>
-              <div class="amount"> ${user.wallets[wallet].cryptos[crypto].toFixed(2)} </div>
-              <div class="marketcap">${mktcap}</div>
-              <div class="graph">Graphique</div>
-          </div>
-          `
-      }
+        const mktcap = await getMarketCap(crypto)
+        const logo = await getCryptoImageUrl(crypto);
+        const pricechange = await getCryptoPriceChange(crypto)
+        let pricechangebool;
+        let priceColorClass;
+    
+        if (pricechange > 0){
+            pricechangebool = `<i class="fa-sharp fa-solid fa-caret-up"></i>${await getCryptoPrice(crypto)}`
+            priceColorClass = 'green';
+        } else if (pricechange < 0) {
+            pricechangebool = `<i class="fa-sharp fa-solid fa-caret-down"></i>${await getCryptoPrice(crypto)}`
+            priceColorClass = 'red';
+        } else {
+            pricechangebool = `${await getCryptoPrice(crypto)}`
+            priceColorClass = '';
+        }
+    
+        boxCrypto += `
+            <div class="${crypto}">
+                <div class="name">
+                    <img src="${logo}">
+                    ${crypto}
+                </div>
+                <div class="price p ${priceColorClass}">
+                    ${pricechangebool}
+                </div>
+                <div class="amount">${user.wallets[wallet].cryptos[crypto].toFixed(2)}</div>
+                <div class="marketcap">${mktcap}</div>
+                <div class="graph" id="${crypto}-graph"></div>
+            </div>
+        `;
+    }
 
       let boxHtml = `
           <div id="${wallet}" class="walletcontent">
@@ -78,6 +97,12 @@ async function loadWallet(wallet){
     walletsContainer.innerHTML = boxHtml;
   const transactionbtns = document.getElementById("transacbtn");
   transactionbtns.addEventListener("click", openWindow)
+  loadDoughnutGraph(wallet)
+
+  for (const crypto in user.wallets[wallet].cryptos){
+    loadCryptoChart(crypto, crypto + "-graph", ["#16c784", "#16c784"], defaultCryptoChartOptions)
+  }  
+
 
 }
 

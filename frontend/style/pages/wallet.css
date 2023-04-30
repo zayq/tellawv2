@@ -605,3 +605,56 @@ section .content{
 
 
 /**********************/
+.iconinfo .switchcontent{
+    position: relative;
+    min-width: 58px;
+    height: 28px;
+}
+.iconinfo .switch{
+    min-width: 100%;
+}
+.switch input{
+    display: none;
+}
+.switch input:checked + .slider {
+    box-shadow: 0 0 0 2px var(--maincolor);
+    border: 4px solid transparent;
+}
+
+.slider
+{
+    width: 50px;
+    height: 20px;
+  position: absolute;
+  border-radius: 30px;
+  box-shadow: 0 0 0 2px var(--maincolor), 0 0 4px var(--maincolor);
+  cursor: pointer;
+    border: 4px solid transparent;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.slider:before
+{
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background-color: var(--maincolor);
+  border-radius: 30px;
+  transform: translateX(0px); /*translateX(-(w-h))*/
+  transition: 0.2s;
+}
+
+.switch input:checked + .slider:before
+{
+  width: 50%;
+  transform: translateX(30px); /*translateX(w-h)*/
+  background-color: var(--maincolor);
+}
+
+.switch input:checked + .slider
+{
+  box-shadow: 0 0 0 2px var(--maincolor);
+  border: 4px solid transparent;
+}

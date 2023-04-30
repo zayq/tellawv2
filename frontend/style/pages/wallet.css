@@ -265,7 +265,6 @@ section{
     text-align: center;
     padding: 8px;
     color: var(--maincolor);
-    background: var(--mainbgcolor);
     border-radius: 8px;
     text-decoration: none;
     cursor: pointer;
@@ -273,7 +272,9 @@ section{
 .createwallet-btn:hover{
     transition: 0.2s;
     color: var(--purple);
-    background-color: #eff2f5;
+    /*background-color: #eff2f5;
+*/
+    background-color: var(--secondbgcolor);
 }
 
 .allwallets div{
@@ -298,6 +299,7 @@ section{
     font-size: 14px;
     font-weight: 600;
     margin-top: 5px;
+    color: var(--maincolor);
 }
 .allwallets div div:nth-child(2) p:nth-child(2){
     font-size: 12px;
@@ -305,7 +307,7 @@ section{
     margin-bottom: 7px;
 }
 .allwallets .w:hover{
-    background: rgb(239, 242, 245);
+    background: var(--secondbgcolor);
 }
 
 .allwallets .w .logoimg img{
@@ -336,6 +338,7 @@ section .content{
     margin: 15px 0 0 0;
     padding-bottom: 10px;
     border-bottom: 2px solid #eff2f5;
+    color: var(--maincolor);
 }
 .wallettitle h1{
     font-size: 32px;
@@ -377,6 +380,7 @@ section .content{
     flex-direction: column;
     margin-top: 40px;
     gap: 15px;
+    color: var(--maincolor);
 }
 .portfolio h5{
     font-size: 1.4rem;
@@ -400,9 +404,10 @@ section .content{
 .walletelements .element{
     text-transform: uppercase;
     font-weight: 300;
+    color: var(--maincolor);
 }
 .walletelements .element div:hover{
-    background: #fafafa;
+    background: var(--secondbgcolor);
 }
 
 .header-wallet{
@@ -412,6 +417,10 @@ section .content{
     font-size: 1.5rem;
     display: flex;
     flex: 1;
+}
+
+.description{
+    color: var(--maincolor);
 }
 
 .description .name{

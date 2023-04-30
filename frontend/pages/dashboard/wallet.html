@@ -31,22 +31,35 @@
                 <i id="settingsbtn" class="fa-solid fa-gear"></i>
             </div>
             <div class="userpic">
-                <img class="profilepicture-img" id="profilepictureimg" src="" alt=" ">
-                <p id="username"></p>
+                <img class="profilepicture-img" id="profilepictureimg" src="https://i.seadn.io/gcs/files/0ad6abfac28283827e40a580e5e2a3b7.gif?auto=format&w=1000" alt=" ">
+                <p id="username">Dez</p>
+                <div class="minisettings">
+                    <div id="settingsbtn">
+                        <i class="fa-solid fa-gear"></i>
+                        <p>Setting</p>
+                    </div>
+                    <div id="notifbtn">
+                        <i class="fa-solid fa-bell"></i>
+                        <p>Notification</p>
+                    </div>
+                </div>
             </div>
-            <div class="buttonwallet">
-
-                <button id="connectwallet" class="connectwallet">Connect Wallet</button>
-            </div>
+            <!--
+                
+                <div class="buttonwallet">
+                    
+                    <button id="connectwallet" class="connectwallet">Connect Wallet</button>
+                </div>
+            -->
         </div>
     </div>
 
     <section id="settingpage" class="settings">
         <div class="allsettings">
-            <div class="profile">Profile</div>
-            <div class="accountsecutity">Account Security</div>
+            <div class="profile" id="profilebtn">Profile</div>
+            <div class="accountsecutity" id="accountsecuritybtn">Account Security</div>
         </div>
-        <div class="settingprofile">
+        <div class="settingprofile" id="settingprofilepage">
             <h1>Profile</h1>
             <div class="avatar">
                 <div class="left">
@@ -77,6 +90,22 @@
                 </div>
             </div>
             <button class="saveprofile">Save Portfolio</button>
+        </div>
+        <div class="settingauth" id="settingaccountsecuritypage">
+            <h1>Account Security</h1>
+            <div class="email">
+                <p>Current email</p>
+                <div class="emailinput">
+                    <input type="text">
+                    <span>12/20</span>
+                </div>
+                <p>Change email:</p>
+                <div class="emailinput">
+                    <input type="text">
+                    <span>12/20</span>
+                </div>
+            </div>
+            <button class="saveauth">Save Portfolio</button>
         </div>
     </section>
     

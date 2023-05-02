@@ -151,6 +151,12 @@ async function loadleftwallets(){
     const walletNames = Object.keys(user.wallets);
     const firstWalletName = walletNames[0];
     await loadWallet(firstWalletName)
+
+    const createwalletbtn = document.getElementById("createwallet-btn")
+
+    createwalletbtn.addEventListener("click", function(){
+      document.getElementById("createwallet-window").style.display = "flex"
+    })
 }
 
 await loadleftwallets()

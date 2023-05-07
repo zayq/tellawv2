@@ -240,9 +240,10 @@ section{
         max-width: 1375px;
         margin: auto;
     }
-    .amount{
-        display: block;
+    .element .date, .description .date{
+        display: none;
     }
+
     .contents .allwallets {
         display: flex;
         flex-direction: column;
@@ -489,7 +490,6 @@ section .content{
 .description .amount{
     flex: 1;
     padding: 5px;
-    display: none;
 }
 .description .marketcap{
     flex: 1;
@@ -528,7 +528,6 @@ section .content{
     align-items: center;
 }
 .element div .amount {
-    display: none;
 }
 .element img{
     width: 50px;

@@ -430,3 +430,38 @@ input[type=number]::-webkit-outer-spin-button {
   width: 35rem;
   font-family: 'Inter', sans-serif;
 }
+
+
+
+.transac-currency .currency{
+  display: flex;
+}
+.transac-currency .currency .cad{
+  position: absolute;
+  right: 8%;
+  top: 23%;
+  background-color: #eff2f5;
+  width: 40%;
+  height: 8%;
+  border-radius: 10px;
+  border: #ffffff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transac-currency .currency .usd{
+  position: absolute;
+  left: 8%;
+  top: 23%;
+  background-color: #eff2f5;
+  width: 40%;
+  height: 8%;
+  border-radius: 10px;
+  border: #ffffff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

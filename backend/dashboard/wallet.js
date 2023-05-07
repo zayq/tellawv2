@@ -457,7 +457,7 @@ function createwindowselect(){
     if (sell.classList.contains("active")) {
         type = false
     }
-    let transaction = new Transaction(symbol, ammount, type, user.id, wallet, "crypto")
+    let transaction = new Transaction(symbol, ammount, type, user.id, wallet, "cryptos")
     await transaction.transac();
     setTimeout(function(){
         document.getElementById("transaction-window").style.display = "none"
@@ -645,15 +645,44 @@ function loadCurrencyTransaction(){
     sell.classList.add("active");
     buy.classList.remove("active")
   })
+
+  console.log("LKj")
+  const cad = document.getElementById("cad");
+  const usd = document.getElementById("usd");
+  console.log(usd, cad)
+  cad.classList.add("active");
+
+  cad.addEventListener("click", function() {
+    console.log("lkjcdes")
+    cad.classList.add("active");
+    usd.classList.remove("active")
+  })
+  usd.addEventListener("click", function() {
+    console.log("hgfhgfhgf")
+    usd.classList.add("active");
+    cad.classList.remove("active")
+  })
+
+
 }
 loadCurrencyTransaction()
 
 const createtransactioncurrencybtn = document.getElementById("createtransactioncurrency-btn")
 
-createtransactioncurrencybtn.addEventListener("click", function(){
-  const quantity = document.getElementById("quantity-input-currency")
+createtransactioncurrencybtn.addEventListener("click", async function(){
+  let wallet;
+  const walletContents = document.querySelectorAll('.walletcontent');
+  walletContents.forEach(walletContent => {
+  if (getComputedStyle(walletContent).display === 'flex') {
+      wallet = walletContent.id;
+  }
+  });
+  const quantity = document.getElementById("quantity-input-currency").value
   const buy = document.getElementById("Buy-currency");
   const sell = document.getElementById("Sell-currency");
+
+  const cad = document.getElementById("cad")
+  const usd = document.getElementById("usd")
   let type
     if (buy.classList.contains("active")) {
         type = true
@@ -662,4 +691,18 @@ createtransactioncurrencybtn.addEventListener("click", function(){
     if (sell.classList.contains("active")) {
         type = false
     }
+  let currency
+  if (cad.classList.contains("active")) {
+    currency = "cad"
+  }
+
+  if (usd.classList.contains("active")) {
+    currency = "usd"
+  }
+  let transaction = new Transaction(currency, quantity, type, user.id, wallet, "currencies")
+  await transaction.transac();
+    setTimeout(function(){
+        document.getElementById("window-transaction-currency").style.display = "none"
+        loadWallet(wallet);
+     }, 500);
 })

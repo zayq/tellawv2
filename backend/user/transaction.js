@@ -11,8 +11,13 @@ export class Transaction {
       this.what = what
     }
     async transac(){
-    
-      const userCryptoRef = database.ref(`users/${this.id}/wallets/${this.walletid}/${what}/${this.symbol}`);
+      console.log(this.symbol,
+        this.ammount,
+        this.type,
+        this.id,
+        this.walletid,
+        this.what)
+      const userCryptoRef = database.ref(`users/${this.id}/wallets/${this.walletid}/${this.what}/${this.symbol}`);
       
       userCryptoRef.transaction((currentValue) => {
         if (!currentValue) {

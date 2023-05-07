@@ -436,7 +436,8 @@ input[type=number]::-webkit-outer-spin-button {
 .transac-currency .currency{
   display: flex;
 }
-.transac-currency .currency .cad{
+
+.cadcur{
   position: absolute;
   right: 8%;
   top: 23%;
@@ -450,7 +451,7 @@ input[type=number]::-webkit-outer-spin-button {
   align-items: center;
 }
 
-.transac-currency .currency .usd{
+.usdcur{
   position: absolute;
   left: 8%;
   top: 23%;
@@ -462,4 +463,23 @@ input[type=number]::-webkit-outer-spin-button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.cadcur.active{
+    transition: background-color 0.2s ease-in;
+    background-color: #fa6dff;
+}
+.usdcur.active{
+  transition: background-color 0.2s ease-in;
+  background-color: #fa6dff;
+}
+
+#createtransactioncurrency-btn{
+  background-color: #9E77ED;
+  border: #9E77ED;
+  border-radius: 15px;
+  width: 85%;
+  height: 3.5rem;
+  color: #ffffff;
+  font-size: large;
 }

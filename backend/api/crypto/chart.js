@@ -16,7 +16,7 @@ export const defaultCryptoChartOptions = {
         left: 0,
         right: 0
     },
-    autoSize: true,
+    with: 250,
     grid: {
       vertLines: {
         visible: false

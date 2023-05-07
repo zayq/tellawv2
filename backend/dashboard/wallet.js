@@ -629,3 +629,37 @@ function closeCreateWalletWindow(){
   CreateWalletPage.style.display = "none";
   isCreateWalletWindow = false
 }
+
+
+
+function loadCurrencyTransaction(){
+  const buy = document.getElementById("Buy-currency");
+  const sell = document.getElementById("Sell-currency");
+  buy.classList.add("active");
+
+  buy.addEventListener("click", function() {
+    buy.classList.add("active");
+    sell.classList.remove("active")
+  })
+  sell.addEventListener("click", function() {
+    sell.classList.add("active");
+    buy.classList.remove("active")
+  })
+}
+loadCurrencyTransaction()
+
+const createtransactioncurrencybtn = document.getElementById("createtransactioncurrency-btn")
+
+createtransactioncurrencybtn.addEventListener("click", function(){
+  const quantity = document.getElementById("quantity-input-currency")
+  const buy = document.getElementById("Buy-currency");
+  const sell = document.getElementById("Sell-currency");
+  let type
+    if (buy.classList.contains("active")) {
+        type = true
+    }
+
+    if (sell.classList.contains("active")) {
+        type = false
+    }
+})

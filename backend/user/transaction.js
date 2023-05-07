@@ -2,16 +2,17 @@ import { database } from "/backend/database/database.js";
 import { getCryptoPrice} from "/backend/api/crypto/crypto.js";
 
 export class Transaction {
-    constructor(symbol, ammount, type, id, walletid){
+    constructor(symbol, ammount, type, id, walletid, what){
       this.symbol = symbol;
       this.ammount = ammount;
       this.type = type
       this.id = id
       this.walletid = walletid
+      this.what = what
     }
     async transac(){
     
-      const userCryptoRef = database.ref(`users/${this.id}/wallets/${this.walletid}/cryptos/${this.symbol}`);
+      const userCryptoRef = database.ref(`users/${this.id}/wallets/${this.walletid}/${what}/${this.symbol}`);
       
       userCryptoRef.transaction((currentValue) => {
         if (!currentValue) {
@@ -27,10 +28,10 @@ export class Transaction {
         return newValue >= 0 ? parseFloat(newValue) : currentValue;
       })
       .then(() => {
-        console.log("crypto edited!");
+        console.log(`${what} edited!`);
       })
       .catch((error) => {
-        console.error('Error adding crypto:', error);
+        console.error(`Error adding ${what} :`, error);
       });
     }
   }
@@ -50,3 +51,7 @@ export async function createWallet(name, type, logo, userId){
     console.error(`Error creating wallet ${name} for user ${userId}:`, error);
   }
 }
+
+
+
+

@@ -30,7 +30,6 @@ async function loadWallet(wallet){
           const pricechange = await getCryptoPriceChange(crypto)
           let pricechangebool;
           let priceColorClass;
-      
           if (pricechange > 0){
               pricechangebool = `<i class="fa-sharp fa-solid fa-caret-up"></i>${await getCryptoPrice(crypto)}`
               priceColorClass = 'green';
@@ -245,16 +244,19 @@ async function loadleftwallets(){
 await loadleftwallets()
 
 
-const transactionWindow = document.getElementById("transaction-window");
-const transactionWindowCurrency = document.getElementById("window-transaction-currency")
+
 let isWindowOpen = false
 
 
 
-function openWindow(){
+async function openWindow(){
+  const transactionWindow = document.getElementById("transaction-window");
+  const transactionWindowCurrency = document.getElementById("window-transaction-currency")
+  
     const type = document.getElementById("wallet-type").innerHTML
     console.log(type)
     if (type == "Crypto"){
+      await createwindowselect()
       transactionWindow.style.display = "flex";
     }
     else{
@@ -265,6 +267,8 @@ function openWindow(){
 }
 
 function closeWindow(){
+  const transactionWindow = document.getElementById("transaction-window");
+  const transactionWindowCurrency = document.getElementById("window-transaction-currency")
     const type = document.getElementById("wallet-type").innerHTML
     if (type == "Crypto"){
       transactionWindow.style.display = "none";
@@ -278,7 +282,9 @@ function closeWindow(){
 // Detect all clicks on the document
 document.addEventListener("click", function(event) {
   // If user clicks inside the element, do nothing
-  if (event.target.closest("#transaction-window") || event.target.closest(".transacbtn") || event.target.closest("#transac-comeback")) return
+  if (event.target.closest("#transaction-window") || event.target.closest(".transacbtn") ||
+  event.target.closest("#transac-comeback") || event.target.closest("#window-transaction-currency") ||
+  event.target.closest("#add-currency") || event.target.closest(".currency")) return
   // If user clicks outside the element, hide it!
   else{
     if (isWindowOpen){
@@ -344,9 +350,7 @@ function createwindowselect(){
   
   searchBar.addEventListener('input', search);
   }
-  
-  createwindowselect()
-  
+    
   async function createwindowtransac(selectedCoin){
     let transactionwindow = document.getElementById("transaction-window")
     transactionwindow.innerHTML = `
@@ -453,7 +457,7 @@ function createwindowselect(){
     if (sell.classList.contains("active")) {
         type = false
     }
-    let transaction = new Transaction(symbol, ammount, type, user.id, wallet)
+    let transaction = new Transaction(symbol, ammount, type, user.id, wallet, "crypto")
     await transaction.transac();
     setTimeout(function(){
         document.getElementById("transaction-window").style.display = "none"

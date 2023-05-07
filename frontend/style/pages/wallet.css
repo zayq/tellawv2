@@ -243,6 +243,13 @@ section{
     .amount{
         display: block;
     }
+    .contents .allwallets {
+        display: flex;
+        flex-direction: column;
+        margin-top: 100px;
+        margin-right: 50px;
+        gap: 10px;
+    }
     
     
     .description .name, .description .price, .description .amount, .description .marketcap{
@@ -255,11 +262,21 @@ section{
     }
     
 }
-@media screen and (min-width: 10px) and (max-width: 1300px) {
+@media screen and (min-width: 10px) and (max-width: 1400px) {
     .description .date, .element .date{
         display: none;
     }
     
+}
+
+@media screen and (min-width: 950px) {
+    .contents .allwallets {
+        display: flex;
+        flex-direction: column;
+        margin-top: 100px;
+        margin-right: 50px;
+        gap: 10px;
+    }
 }
 @media screen and (min-width: 1800px) {
     .contents{
@@ -275,6 +292,16 @@ section{
     }
 }
 
+@media screen and (min-width:10px)and (max-width: 950px) {
+    *{
+    }
+    .contents{
+        flex-direction: column;
+    }
+
+}
+
+
 
 
 /*----------------------------------------*/
@@ -284,8 +311,6 @@ section{
 .contents .allwallets{
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
-    margin-right: 50px;
     gap: 10px;
 }
 
@@ -472,6 +497,8 @@ section .content{
 }
 .description .graph{
     width: 250px;
+    display: inline-flex;
+    align-items: center;
 }
 .description .date{
     flex: 1;
@@ -745,6 +772,63 @@ section .content{
     bottom: 15px;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+/**********************/
+
+
+
+
+
+.negcurrency{
+    display: flex;
+    box-shadow: rgba(88, 102, 126, 0.08) 0px 4px 24px, rgba(88, 102, 126, 0.12) 0px 1px 2px;
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    align-items: top;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 16px;
+    height: 25rem;
+    width: 35rem;
+    font-family: 'Inter', sans-serif;
+}
+
+
+.header{
+    position: absolute;
+    top: 4%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: left;
+    margin-left: 12%;
+    align-items: center;
+}
+
+.negcurrency .currency{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.negcurrency .currency div{
+    height: 20px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+    padding: 24px;
+    border: 1px solid #eff2f5;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin: auto;
+    cursor: pointer;
 }
 
 

@@ -87,9 +87,9 @@ async function loadWallet(wallet){
               <div class="header-wallet">
                   <div class="name">Name</div>
                   <div class="price">Price</div>
-                  <div class="amount">1h</div>
-                  <div class="amount">24h</div>
-                  <div class="amount">7d</div>
+                  <div class="date">1h</div>
+                  <div class="date">24h</div>
+                  <div class="date">7d</div>
                   <div class="amount">Amount</div>
                   <div class="marketcap">Marketcap</div>
                   <div class="graph">Graphique</div>

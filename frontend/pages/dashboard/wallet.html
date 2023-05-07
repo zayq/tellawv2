@@ -162,29 +162,13 @@
       </section>
 
 
-    <section id="window-transaction-currency" class="negcurrency">
-        <div class="header">
-            <h1>Select a Currency</h1>
-        </div>
-        <div class="currency">
-            <div class="cad">CAD</div>
-            <div class="usd">USD</div>
-        </div>
-        <button id="add-currency">Add Transaction</button>
-    </section>
     <section id="window-transaction-currency" class="transac-currency">
         <div id="header">
-            <i id="transac-comeback" class="fa-solid fa-arrow-left"></i>
             <h1 id="select">Add Transaction</h1>
         </div>
         <div id="options">
             <button class="option-transac" id="Buy">Buy</button>
             <button class="option-transac" id="Sell">Sell</button>
-        </div>
-        <div id="coinselected">
-          <img id="selectedcoinlogo" src="${await getCryptoImageUrl(selectedCoin)}">
-          <h1 id="selectedcoin">${data[selectedCoin]}</h1>
-          <h2 id="symbolselected" class="symbolspanselected">${selectedCoin.toUpperCase()}</h2>
         </div>
         <div id="inputs">
             <div class="input">

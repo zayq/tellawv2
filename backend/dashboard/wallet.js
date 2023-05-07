@@ -1,7 +1,7 @@
 import { User } from "/backend/user/user.js";
 import { CryptoWallet } from "/backend/user/wallets.js";
 import { getCryptoPrice, getCryptoImageUrl, getMarketCap, getCryptoPriceChange1h, getCryptoPriceChange24h, getCryptoPriceChange7d} from "/backend/api/crypto/crypto.js";
-import { Transaction } from "/backend/user/transaction.js";
+import { Transaction, createWallet } from "/backend/user/transaction.js";
 import { data } from "/backend/database/crypto_list.js";
 import { getCryptoPriceChange } from "../api/crypto/crypto.js";
 import { defaultCryptoChartOptions, getCryptoChartHistoricalData, loadCryptoChart } from "../api/crypto/chart.js";
@@ -115,17 +115,19 @@ async function loadWallet(wallet){
 async function loadleftwallets(){
     await user.setUserData();
     const container = document.getElementById("leftwallets");
+    container.innerHTML = ``
     let boxHtml = "";
     for (const wallet in user.wallets){
       //<div id="${wallet}-btn">${wallet}</div>
+      console.log(wallet)
         boxHtml += `
          <div id="${wallet}-btn" class="w">
          <div class="logoimg">
-         <img src="https://i.seadn.io/gcs/files/b933aa01a3527e9939a51cf4efbd3c92.gif?auto=format&w=384" alt="">
+         <img src="${user.wallets[wallet].logo}" alt="">
          </div>
          <div>
          <p>${wallet}</p>
-         <p>Crypto</p>
+         <p>${user.wallets[wallet].type}</p>
          </div>
          </div>
         `
@@ -156,6 +158,8 @@ async function loadleftwallets(){
 
     createwalletbtn.addEventListener("click", function(){
       document.getElementById("createwallet-window").style.display = "flex"
+      console.log("kcdjsh")
+      isCreateWalletWindow = true
     })
 }
 
@@ -479,5 +483,51 @@ function openProfilePage(){
   ProfilePage.style.display = "flex"
 }
 
+///////////////////////////////////
+// CREATE WALLET FUNCTION
+///////////////////////////////////
 
 
+
+const createwalletbtn = document.getElementById("create-wallet-btn")
+
+createwalletbtn.addEventListener("click", async function(){
+    const wallettypesbtns = document.querySelectorAll(".wallet-type");
+    const logos = document.querySelectorAll(".wallet-logo");
+
+    const walletname = document.getElementById("wallet-name").value
+    let wallettype;
+    let walletlogo;
+
+    wallettypesbtns.forEach(type => {
+      if (type.classList.contains("active")){
+        wallettype = type.querySelector('h1').innerText
+      }
+    });
+    logos.forEach(logo => {
+      if (logo.classList.contains("active")){
+        walletlogo = logo.getAttribute("src")
+      }
+    });
+    console.log(walletname +  " / " + wallettype +  " / " + walletlogo)
+    await createWallet(walletname, wallettype, walletlogo, user.id)
+
+    closeCreateWalletWindow()
+    await loadleftwallets()
+})
+
+const CreateWalletPage = document.getElementById("createwallet-window");
+var isCreateWalletWindow = false; 
+document.addEventListener("click",function (event){
+  if(event.target.closest("#createwallet-window") || event.target.closest("#createwallet-btn"))
+  return
+  else{
+    if(isCreateWalletWindow){
+      closeCreateWalletWindow()
+    }
+  }
+});
+function closeCreateWalletWindow(){
+  CreateWalletPage.style.display = "none";
+  isCreateWalletWindow = false
+}

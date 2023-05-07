@@ -138,7 +138,17 @@
           <h1 id="wallet-name-h1">Wallet Name</h1>
           <input id="wallet-name" type="text" placeholder="Wallet Name">
         </div>
+        <div id="wallet-logo">
+          <h1 id="wallet-name-h1">Wallet Logo</h1>
+          <div id="wallet-logos">
+            <img class="wallet-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/57/Binance_Logo.png">
+            <img class="wallet-logo" src="https://seeklogo.com/images/C/coinbase-coin-logo-C86F46D7B8-seeklogo.com.png">
+            <img class="wallet-logo" src="https://www.desjardins.com/ressources/images/desjardins-facebook-generique.jpg">
+            <img class="wallet-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png">
+          </div>
+        </div>
         <div id="wallet-types">
+          <h1 id="wallet-type-h1">Wallet Type</h1>
           <div class="wallet-type">
             <i id="wallet-type-icon" class="fa-solid fa-diamond fa-xl"></i>
             <h1>Crypto</h1>
@@ -153,7 +163,7 @@
           </div>
         </div>
         <button id="create-wallet-btn">Create Wallet</button>
-    </section>
+      </section>
    
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
@@ -162,6 +172,7 @@
     <script src="/backend/user/user.js" type="module"></script>
     <script src="/backend/user/wallets.js" type="module"></script>
     <script src="/backend/dashboard/wallet.js" type="module"></script>
+    <script src="/backend/dashboard/createwalletwindow.js" type="module"></script>
     <script src="/backend/user/transaction.js" type="module"></script>
     <script src="/backend/api/crypto/crypto.js" type="module"></script>
     <script src="/backend/api/crypto/chart.js" type="module"></script>

@@ -552,7 +552,7 @@ section .content{
     position: absolute;
     align-items: center;
     justify-content: center;
-    top: 50%;
+    top: 500px;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;

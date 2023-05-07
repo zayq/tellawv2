@@ -1,5 +1,6 @@
 import { database } from "/backend/database/database.js";
 import { getCryptoPrice} from "/backend/api/crypto/crypto.js";
+
 export class Transaction {
     constructor(symbol, ammount, type, id, walletid){
       this.symbol = symbol;
@@ -33,3 +34,19 @@ export class Transaction {
       });
     }
   }
+
+export async function createWallet(name, type, logo, userId){
+  const userWalletsRef = database.ref(`users/${userId}/wallets`);
+  const newWalletRef = userWalletsRef.child(name);
+  const walletData = {
+    type: type,
+    logo: logo
+  };
+  
+  try {
+    await newWalletRef.set(walletData);
+    console.log(`Wallet ${name} created with type ${type} for user ${userId}`);
+  } catch (error) {
+    console.error(`Error creating wallet ${name} for user ${userId}:`, error);
+  }
+}

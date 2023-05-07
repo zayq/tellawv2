@@ -831,6 +831,18 @@ section .content{
     cursor: pointer;
 }
 
+.negcurrency btn{
+    position: absolute;
+    bottom: 5px;
+    padding: 8px;
+    color: #FFFF;
+    background: var(--purple);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 
 /**********************/
 
